@@ -120,7 +120,11 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="calenderView" destination="y9t-vJ-jpF" id="v4h-Q9-ztF"/>
                         <outlet property="firstview" destination="O5H-52-pQL" id="62r-W2-31z"/>
+                        <outlet property="otherOptionView" destination="Q7n-hq-vGB" id="dZm-uS-6pD"/>
+                        <outlet property="regionView" destination="iQH-0d-VoZ" id="SVy-to-AX7"/>
+                        <outlet property="tempLYView" destination="jNZ-fv-yed" id="jyk-en-Yrk"/>
                         <outlet property="tempLabel" destination="3P3-Cq-Sg7" id="Bav-f0-QLE"/>
                         <segue destination="EiK-Gc-WGF" kind="presentation" identifier="showFirstView" modalPresentationStyle="automatic" id="EHV-yi-9ZT"/>
                     </connections>
