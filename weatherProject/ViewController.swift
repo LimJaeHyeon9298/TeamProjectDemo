@@ -29,11 +29,11 @@ class ViewController: UIViewController {
     
     func setupUI() {
         firstview.backgroundColor = .gray
-        firstview.layer.cornerRadius = 10
-        tempLYView.layer.cornerRadius = 10
-        calenderView.layer.cornerRadius = 10
-        otherOptionView.layer.cornerRadius = 10
-        regionView.layer.cornerRadius = 10
+        firstview.layer.cornerRadius = 12
+        tempLYView.layer.cornerRadius = 12
+        calenderView.layer.cornerRadius = 12
+        otherOptionView.layer.cornerRadius = 12
+        regionView.layer.cornerRadius = 12
     }
     
     @objc func firstViewTapped(_ sender: UITapGestureRecognizer) {

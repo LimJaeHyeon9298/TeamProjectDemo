@@ -27,7 +27,7 @@
                                                 <rect key="frame" x="20" y="30" width="374" height="80"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="지구온도" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cex-3Z-hdh">
-                                                        <rect key="frame" x="10" y="10" width="62.5" height="21.5"/>
+                                                        <rect key="frame" x="15" y="15" width="62.5" height="21.5"/>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
@@ -44,8 +44,8 @@
                                                     <accessibilityTraits key="traits" button="YES" link="YES" image="YES"/>
                                                 </accessibility>
                                                 <constraints>
-                                                    <constraint firstItem="cex-3Z-hdh" firstAttribute="top" secondItem="O5H-52-pQL" secondAttribute="top" constant="10" id="Rh4-fR-QYp"/>
-                                                    <constraint firstItem="cex-3Z-hdh" firstAttribute="leading" secondItem="O5H-52-pQL" secondAttribute="leading" constant="10" id="Z6W-AV-Zej"/>
+                                                    <constraint firstItem="cex-3Z-hdh" firstAttribute="top" secondItem="O5H-52-pQL" secondAttribute="top" constant="15" id="Rh4-fR-QYp"/>
+                                                    <constraint firstItem="cex-3Z-hdh" firstAttribute="leading" secondItem="O5H-52-pQL" secondAttribute="leading" constant="15" id="Z6W-AV-Zej"/>
                                                     <constraint firstAttribute="trailing" secondItem="3P3-Cq-Sg7" secondAttribute="trailing" constant="20" id="Ze0-kr-Zb7"/>
                                                     <constraint firstAttribute="height" constant="80" id="hJc-0u-jcS"/>
                                                     <constraint firstAttribute="bottom" secondItem="3P3-Cq-Sg7" secondAttribute="bottom" constant="10" id="mVR-nW-h7G"/>
@@ -57,7 +57,19 @@
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jNZ-fv-yed">
                                                         <rect key="frame" x="0.0" y="0.0" width="177" height="177"/>
-                                                        <color key="backgroundColor" systemColor="systemGrayColor"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="작년 오늘" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ivc-LC-WEc">
+                                                                <rect key="frame" x="15" y="15" width="66.5" height="21.5"/>
+                                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <constraints>
+                                                            <constraint firstItem="ivc-LC-WEc" firstAttribute="leading" secondItem="jNZ-fv-yed" secondAttribute="leading" constant="15" id="4hR-v1-mZW"/>
+                                                            <constraint firstItem="ivc-LC-WEc" firstAttribute="top" secondItem="jNZ-fv-yed" secondAttribute="top" constant="15" id="Qnf-0Y-MQe"/>
+                                                        </constraints>
                                                     </view>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="q37-RJ-CwT">
                                                         <rect key="frame" x="197" y="0.0" width="177" height="177"/>
@@ -67,17 +79,53 @@
                                                                 <subviews>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="y9t-vJ-jpF">
                                                                         <rect key="frame" x="0.0" y="0.0" width="78.5" height="78.5"/>
-                                                                        <color key="backgroundColor" systemColor="systemGrayColor"/>
+                                                                        <subviews>
+                                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="calendar" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="ynu-Ew-R5z">
+                                                                                <rect key="frame" x="19.5" y="20.5" width="40" height="37.5"/>
+                                                                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                <constraints>
+                                                                                    <constraint firstAttribute="width" constant="40" id="6jL-eH-yEl"/>
+                                                                                    <constraint firstAttribute="height" constant="40" id="fy2-KP-8bZ"/>
+                                                                                </constraints>
+                                                                            </imageView>
+                                                                        </subviews>
+                                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                        <constraints>
+                                                                            <constraint firstItem="ynu-Ew-R5z" firstAttribute="centerX" secondItem="y9t-vJ-jpF" secondAttribute="centerX" id="cVJ-Id-Cam"/>
+                                                                            <constraint firstItem="ynu-Ew-R5z" firstAttribute="centerY" secondItem="y9t-vJ-jpF" secondAttribute="centerY" id="jKJ-Jx-JZk"/>
+                                                                        </constraints>
                                                                     </view>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q7n-hq-vGB">
                                                                         <rect key="frame" x="98.5" y="0.0" width="78.5" height="78.5"/>
-                                                                        <color key="backgroundColor" systemColor="systemGrayColor"/>
+                                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     </view>
                                                                 </subviews>
                                                             </stackView>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iQH-0d-VoZ">
                                                                 <rect key="frame" x="0.0" y="98.5" width="177" height="78.5"/>
-                                                                <color key="backgroundColor" systemColor="systemGrayColor"/>
+                                                                <subviews>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="고양시, 경기도" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o2d-ls-j2l">
+                                                                        <rect key="frame" x="15" y="28.5" width="103" height="21.5"/>
+                                                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                                        <nil key="textColor"/>
+                                                                        <nil key="highlightedColor"/>
+                                                                    </label>
+                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mappin.and.ellipse" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="DGV-ci-VI8">
+                                                                        <rect key="frame" x="132" y="21.5" width="35" height="35.5"/>
+                                                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="height" constant="35" id="Pyt-xX-Mzy"/>
+                                                                            <constraint firstAttribute="width" constant="35" id="p7c-OM-wRl"/>
+                                                                        </constraints>
+                                                                    </imageView>
+                                                                </subviews>
+                                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <constraints>
+                                                                    <constraint firstItem="DGV-ci-VI8" firstAttribute="centerY" secondItem="iQH-0d-VoZ" secondAttribute="centerY" id="N8o-8v-cKZ"/>
+                                                                    <constraint firstItem="o2d-ls-j2l" firstAttribute="leading" secondItem="iQH-0d-VoZ" secondAttribute="leading" constant="15" id="PVK-pw-jff"/>
+                                                                    <constraint firstAttribute="trailing" secondItem="DGV-ci-VI8" secondAttribute="trailing" constant="10" id="avC-tM-hTE"/>
+                                                                    <constraint firstItem="o2d-ls-j2l" firstAttribute="centerY" secondItem="iQH-0d-VoZ" secondAttribute="centerY" id="yFm-Pt-ceV"/>
+                                                                </constraints>
                                                             </view>
                                                         </subviews>
                                                     </stackView>
@@ -87,7 +135,7 @@
                                                 </constraints>
                                             </stackView>
                                         </subviews>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <color key="backgroundColor" systemColor="systemGray6Color"/>
                                         <constraints>
                                             <constraint firstItem="O5H-52-pQL" firstAttribute="leading" secondItem="clU-zm-92e" secondAttribute="leading" constant="20" id="1VX-TQ-Vlk"/>
                                             <constraint firstAttribute="height" priority="250" constant="818" id="2jb-v7-Q0K"/>
@@ -322,6 +370,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="calendar" catalog="system" width="128" height="107"/>
+        <image name="mappin.and.ellipse" catalog="system" width="117" height="128"/>
         <systemColor name="labelColor">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
@@ -330,6 +380,9 @@
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray6Color">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGrayColor">
             <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
