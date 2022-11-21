@@ -1,9 +1,6 @@
-//
-//  SceneDelegate.swift
-//  DiceGame2
-//
-//  Created by 임재현 on 2022/09/30.
-//
+
+
+
 
 import UIKit
 

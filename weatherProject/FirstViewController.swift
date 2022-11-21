@@ -1,9 +1,6 @@
-//
-//  FirstViewController.swift
-//  DiceGame2
-//
-//  Created by 표현수 on 2022/11/20.
-//
+
+
+
 
 import UIKit
 

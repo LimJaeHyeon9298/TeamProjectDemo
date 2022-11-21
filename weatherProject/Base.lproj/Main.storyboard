@@ -292,12 +292,21 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="LYWeatherImage" destination="DGV-ci-VI8" id="6k8-Ax-gih"/>
+                        <outlet property="LYWeatherLabel" destination="dcT-Se-Z4B" id="KGY-VX-Agz"/>
+                        <outlet property="LYtempMaxLabel" destination="brD-yo-ieR" id="bTc-6v-2g0"/>
+                        <outlet property="LYtempMinLabel" destination="YyY-vW-gUr" id="bIz-ua-f7V"/>
+                        <outlet property="LYtempView" destination="jNZ-fv-yed" id="ROk-aI-lfy"/>
                         <outlet property="calenderView" destination="y9t-vJ-jpF" id="v4h-Q9-ztF"/>
                         <outlet property="firstview" destination="O5H-52-pQL" id="62r-W2-31z"/>
                         <outlet property="otherOptionView" destination="Q7n-hq-vGB" id="dZm-uS-6pD"/>
+                        <outlet property="regionLabel" destination="o2d-ls-j2l" id="Wy2-Ij-NXX"/>
                         <outlet property="regionView" destination="iQH-0d-VoZ" id="SVy-to-AX7"/>
-                        <outlet property="tempLYView" destination="jNZ-fv-yed" id="jyk-en-Yrk"/>
                         <outlet property="tempLabel" destination="3P3-Cq-Sg7" id="Bav-f0-QLE"/>
+                        <outlet property="weatherDateLabel" destination="SaC-fn-M53" id="9qC-W5-A1Q"/>
+                        <outlet property="weatherImage" destination="mgv-tG-XqH" id="6mi-Xw-rxy"/>
+                        <outlet property="weatherLabel" destination="nM5-8t-W0X" id="3Hk-NS-HFY"/>
+                        <outlet property="weatherTempLabel" destination="BAu-1C-B7J" id="IGU-vV-3st"/>
                         <outlet property="weatherView" destination="j6j-BM-HGv" id="f2u-qa-TEg"/>
                         <segue destination="EiK-Gc-WGF" kind="presentation" identifier="showFirstView" modalPresentationStyle="automatic" id="EHV-yi-9ZT"/>
                     </connections>
