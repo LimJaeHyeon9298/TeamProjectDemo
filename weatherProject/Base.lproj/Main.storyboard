@@ -191,34 +191,68 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j6j-BM-HGv">
                                                 <rect key="frame" x="20" y="327" width="374" height="187"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="작년 오늘" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s68-vs-g2Y">
-                                                        <rect key="frame" x="15" y="15" width="59.5" height="19.5"/>
-                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="나의 위치" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s68-vs-g2Y">
+                                                        <rect key="frame" x="25" y="15" width="74" height="24"/>
+                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="최고:온도º" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mEz-QS-V6x">
-                                                        <rect key="frame" x="15" y="154" width="62.5" height="18"/>
+                                                        <rect key="frame" x="25" y="154" width="62.5" height="18"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                         <color key="textColor" systemColor="systemGrayColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="최고:온도º" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wzC-5E-iTy">
-                                                        <rect key="frame" x="80.5" y="154" width="62.5" height="18"/>
+                                                        <rect key="frame" x="90.5" y="154" width="62.5" height="18"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                         <color key="textColor" systemColor="systemGrayColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="종일 맑음" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nM5-8t-W0X">
+                                                        <rect key="frame" x="293" y="154" width="56" height="18"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="11월 21일 월요일" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SaC-fn-M53">
+                                                        <rect key="frame" x="247" y="15" width="102" height="18"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="22º" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BAu-1C-B7J">
+                                                        <rect key="frame" x="25" y="57.5" width="92.5" height="72"/>
+                                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="60"/>
+                                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sun.max.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="mgv-tG-XqH">
+                                                        <rect key="frame" x="279" y="58" width="70" height="70.5"/>
+                                                        <color key="tintColor" systemColor="systemYellowColor"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="70" id="GYx-4Y-dq9"/>
+                                                            <constraint firstAttribute="height" constant="70" id="UUJ-6A-Kzx"/>
+                                                        </constraints>
+                                                    </imageView>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="bottom" secondItem="wzC-5E-iTy" secondAttribute="bottom" constant="15" id="1K5-EM-wyz"/>
-                                                    <constraint firstItem="s68-vs-g2Y" firstAttribute="leading" secondItem="j6j-BM-HGv" secondAttribute="leading" constant="15" id="4HM-Hj-6Bc"/>
+                                                    <constraint firstItem="s68-vs-g2Y" firstAttribute="leading" secondItem="j6j-BM-HGv" secondAttribute="leading" constant="25" id="4HM-Hj-6Bc"/>
                                                     <constraint firstItem="s68-vs-g2Y" firstAttribute="top" secondItem="j6j-BM-HGv" secondAttribute="top" constant="15" id="9VW-HJ-jO5"/>
+                                                    <constraint firstAttribute="trailing" secondItem="SaC-fn-M53" secondAttribute="trailing" constant="25" id="9ea-si-p41"/>
                                                     <constraint firstItem="wzC-5E-iTy" firstAttribute="leading" secondItem="mEz-QS-V6x" secondAttribute="trailing" constant="3" id="GRW-Vr-8el"/>
+                                                    <constraint firstItem="BAu-1C-B7J" firstAttribute="leading" secondItem="j6j-BM-HGv" secondAttribute="leading" constant="25" id="NEg-h8-hBR"/>
+                                                    <constraint firstItem="BAu-1C-B7J" firstAttribute="centerY" secondItem="j6j-BM-HGv" secondAttribute="centerY" id="PUd-U8-Y8r"/>
                                                     <constraint firstAttribute="width" secondItem="j6j-BM-HGv" secondAttribute="height" multiplier="2:1" id="XI4-kN-Pc2"/>
-                                                    <constraint firstItem="mEz-QS-V6x" firstAttribute="leading" secondItem="j6j-BM-HGv" secondAttribute="leading" constant="15" id="cT9-Zo-o1S"/>
+                                                    <constraint firstItem="mgv-tG-XqH" firstAttribute="centerY" secondItem="j6j-BM-HGv" secondAttribute="centerY" id="YxI-dJ-sh9"/>
+                                                    <constraint firstItem="mEz-QS-V6x" firstAttribute="leading" secondItem="j6j-BM-HGv" secondAttribute="leading" constant="25" id="cT9-Zo-o1S"/>
+                                                    <constraint firstAttribute="trailing" secondItem="nM5-8t-W0X" secondAttribute="trailing" constant="25" id="dpr-fS-8Vs"/>
+                                                    <constraint firstAttribute="bottom" secondItem="nM5-8t-W0X" secondAttribute="bottom" constant="15" id="r6n-b0-Fry"/>
                                                     <constraint firstAttribute="bottom" secondItem="mEz-QS-V6x" secondAttribute="bottom" constant="15" id="s4m-oc-Wun"/>
+                                                    <constraint firstItem="SaC-fn-M53" firstAttribute="top" secondItem="j6j-BM-HGv" secondAttribute="top" constant="15" id="tO9-0p-RwL"/>
+                                                    <constraint firstAttribute="trailing" secondItem="mgv-tG-XqH" secondAttribute="trailing" constant="25" id="xTb-Gl-Qge"/>
                                                 </constraints>
                                             </view>
                                         </subviews>
@@ -264,6 +298,7 @@
                         <outlet property="regionView" destination="iQH-0d-VoZ" id="SVy-to-AX7"/>
                         <outlet property="tempLYView" destination="jNZ-fv-yed" id="jyk-en-Yrk"/>
                         <outlet property="tempLabel" destination="3P3-Cq-Sg7" id="Bav-f0-QLE"/>
+                        <outlet property="weatherView" destination="j6j-BM-HGv" id="f2u-qa-TEg"/>
                         <segue destination="EiK-Gc-WGF" kind="presentation" identifier="showFirstView" modalPresentationStyle="automatic" id="EHV-yi-9ZT"/>
                     </connections>
                 </viewController>
@@ -464,6 +499,7 @@
         <image name="cloud.drizzle" catalog="system" width="126" height="128"/>
         <image name="ellipsis" catalog="system" width="128" height="37"/>
         <image name="mappin.and.ellipse" catalog="system" width="117" height="128"/>
+        <image name="sun.max.fill" catalog="system" width="128" height="125"/>
         <systemColor name="labelColor">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
@@ -481,6 +517,9 @@
         </systemColor>
         <systemColor name="systemGrayColor">
             <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemYellowColor">
+            <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

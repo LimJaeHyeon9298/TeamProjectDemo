@@ -15,7 +15,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var calenderView: UIView!
     @IBOutlet weak var otherOptionView: UIView!
     @IBOutlet weak var regionView: UIView!
-    
+    @IBOutlet weak var weatherView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,6 +34,7 @@ class ViewController: UIViewController {
         calenderView.layer.cornerRadius = 15
         otherOptionView.layer.cornerRadius = 15
         regionView.layer.cornerRadius = 15
+        weatherView.layer.cornerRadius = 15
     }
     
     @objc func firstViewTapped(_ sender: UITapGestureRecognizer) {
