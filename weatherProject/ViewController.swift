@@ -28,7 +28,7 @@ class ViewController: UIViewController {
     }
     
     func setupUI() {
-        firstview.backgroundColor = .gray
+        //view들 모서리 커브
         firstview.layer.cornerRadius = 15
         tempLYView.layer.cornerRadius = 15
         calenderView.layer.cornerRadius = 15
