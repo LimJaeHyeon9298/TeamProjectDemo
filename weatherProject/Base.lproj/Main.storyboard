@@ -76,16 +76,37 @@
                                                                 <color key="textColor" systemColor="systemGrayColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
+                                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="rjn-2M-lKd">
+                                                                <rect key="frame" x="43.5" y="71" width="90.5" height="35"/>
+                                                                <subviews>
+                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cloud.drizzle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="DGV-ci-VI8">
+                                                                        <rect key="frame" x="0.0" y="-1" width="35" height="36.5"/>
+                                                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="height" constant="35" id="Pyt-xX-Mzy"/>
+                                                                            <constraint firstAttribute="width" constant="35" id="p7c-OM-wRl"/>
+                                                                        </constraints>
+                                                                    </imageView>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="흐림, 비" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dcT-Se-Z4B">
+                                                                        <rect key="frame" x="40" y="0.0" width="50.5" height="35"/>
+                                                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                                        <nil key="textColor"/>
+                                                                        <nil key="highlightedColor"/>
+                                                                    </label>
+                                                                </subviews>
+                                                            </stackView>
                                                         </subviews>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstItem="ivc-LC-WEc" firstAttribute="leading" secondItem="jNZ-fv-yed" secondAttribute="leading" constant="15" id="4hR-v1-mZW"/>
                                                             <constraint firstItem="YyY-vW-gUr" firstAttribute="leading" secondItem="brD-yo-ieR" secondAttribute="trailing" constant="3" id="I9O-Nm-iEl"/>
+                                                            <constraint firstItem="rjn-2M-lKd" firstAttribute="centerX" secondItem="jNZ-fv-yed" secondAttribute="centerX" id="JWi-qk-zrZ"/>
                                                             <constraint firstAttribute="width" secondItem="jNZ-fv-yed" secondAttribute="height" multiplier="1:1" id="OC0-Kl-jS6"/>
                                                             <constraint firstAttribute="bottom" secondItem="brD-yo-ieR" secondAttribute="bottom" constant="15" id="P47-cg-eTU"/>
                                                             <constraint firstItem="ivc-LC-WEc" firstAttribute="top" secondItem="jNZ-fv-yed" secondAttribute="top" constant="15" id="Qnf-0Y-MQe"/>
                                                             <constraint firstItem="brD-yo-ieR" firstAttribute="leading" secondItem="jNZ-fv-yed" secondAttribute="leading" constant="15" id="f3r-6K-QGv"/>
                                                             <constraint firstAttribute="bottom" secondItem="YyY-vW-gUr" secondAttribute="bottom" constant="15" id="kbr-fu-7f2"/>
+                                                            <constraint firstItem="rjn-2M-lKd" firstAttribute="centerY" secondItem="jNZ-fv-yed" secondAttribute="centerY" id="p6J-vi-eBQ"/>
                                                         </constraints>
                                                     </view>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="q37-RJ-CwT">
@@ -115,9 +136,21 @@
                                                                     </view>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q7n-hq-vGB">
                                                                         <rect key="frame" x="98.5" y="0.0" width="78.5" height="78.5"/>
-                                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                        <subviews>
+                                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ellipsis" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="YWs-Sx-aAM">
+                                                                                <rect key="frame" x="19.5" y="26.5" width="40" height="25.5"/>
+                                                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                <constraints>
+                                                                                    <constraint firstAttribute="width" constant="40" id="D1a-e4-2XU"/>
+                                                                                    <constraint firstAttribute="height" constant="40" id="IRz-CO-rqM"/>
+                                                                                </constraints>
+                                                                            </imageView>
+                                                                        </subviews>
+                                                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="width" secondItem="Q7n-hq-vGB" secondAttribute="height" multiplier="1:1" id="XmY-b1-vxs"/>
+                                                                            <constraint firstItem="YWs-Sx-aAM" firstAttribute="centerY" secondItem="Q7n-hq-vGB" secondAttribute="centerY" id="isV-ax-Mj8"/>
+                                                                            <constraint firstItem="YWs-Sx-aAM" firstAttribute="centerX" secondItem="Q7n-hq-vGB" secondAttribute="centerX" id="pT0-ZH-9jD"/>
                                                                         </constraints>
                                                                     </view>
                                                                 </subviews>
@@ -131,20 +164,20 @@
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
-                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mappin.and.ellipse" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="DGV-ci-VI8">
-                                                                        <rect key="frame" x="132" y="21.5" width="35" height="35.5"/>
+                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mappin.and.ellipse" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="DWR-4y-fNy">
+                                                                        <rect key="frame" x="125" y="21.5" width="35" height="35.5"/>
                                                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <constraints>
-                                                                            <constraint firstAttribute="height" constant="35" id="Pyt-xX-Mzy"/>
-                                                                            <constraint firstAttribute="width" constant="35" id="p7c-OM-wRl"/>
+                                                                            <constraint firstAttribute="width" constant="35" id="GeJ-4n-uVc"/>
+                                                                            <constraint firstAttribute="height" constant="35" id="nHT-ms-xiX"/>
                                                                         </constraints>
                                                                     </imageView>
                                                                 </subviews>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <constraints>
-                                                                    <constraint firstItem="DGV-ci-VI8" firstAttribute="centerY" secondItem="iQH-0d-VoZ" secondAttribute="centerY" id="N8o-8v-cKZ"/>
                                                                     <constraint firstItem="o2d-ls-j2l" firstAttribute="leading" secondItem="iQH-0d-VoZ" secondAttribute="leading" constant="15" id="PVK-pw-jff"/>
-                                                                    <constraint firstAttribute="trailing" secondItem="DGV-ci-VI8" secondAttribute="trailing" constant="10" id="avC-tM-hTE"/>
+                                                                    <constraint firstAttribute="trailing" secondItem="DWR-4y-fNy" secondAttribute="trailing" constant="17" id="Rwn-oG-5BP"/>
+                                                                    <constraint firstItem="DWR-4y-fNy" firstAttribute="centerY" secondItem="iQH-0d-VoZ" secondAttribute="centerY" id="pkH-BJ-O3l"/>
                                                                     <constraint firstItem="o2d-ls-j2l" firstAttribute="centerY" secondItem="iQH-0d-VoZ" secondAttribute="centerY" id="yFm-Pt-ceV"/>
                                                                 </constraints>
                                                             </view>
@@ -428,6 +461,8 @@
     </scenes>
     <resources>
         <image name="calendar" catalog="system" width="128" height="107"/>
+        <image name="cloud.drizzle" catalog="system" width="126" height="128"/>
+        <image name="ellipsis" catalog="system" width="128" height="37"/>
         <image name="mappin.and.ellipse" catalog="system" width="117" height="128"/>
         <systemColor name="labelColor">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
