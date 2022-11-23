@@ -27,6 +27,16 @@ class FirstViewController: UIViewController {
         
         slider.value = 0.5
     }
+    
+    @IBAction func backButtonTapped(_ sender: UIButton) {
+        self.dismiss(animated: true)
+    }
+    
+    @IBAction func shareButtonTapped(_ sender: UIButton) {
+        
+    }
+    
+    
 
     @IBAction func sliderChanged(_ sender: UISlider) {
         let year = 1950 + Int(sender.value * 71)
