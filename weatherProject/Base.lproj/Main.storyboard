@@ -201,19 +201,40 @@
                                                     <constraint firstAttribute="trailing" secondItem="mgv-tG-XqH" secondAttribute="trailing" constant="24" id="xTb-Gl-Qge"/>
                                                 </constraints>
                                             </view>
+                                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="Iw0-qo-TbS">
+                                                <rect key="frame" x="149" y="442" width="116.5" height="26"/>
+                                            </pageControl>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="🗓10일간의 일기예보" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6cO-tw-52y">
+                                                <rect key="frame" x="24" y="472" width="141" height="19.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                <color key="textColor" systemColor="systemGrayColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="fD5-t7-Dsf">
+                                                <rect key="frame" x="20" y="499.5" width="374" height="294.5"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                            </tableView>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemGray5Color"/>
                                         <constraints>
                                             <constraint firstItem="O5H-52-pQL" firstAttribute="leading" secondItem="clU-zm-92e" secondAttribute="leading" constant="20" id="1VX-TQ-Vlk"/>
                                             <constraint firstAttribute="height" priority="250" constant="818" id="2jb-v7-Q0K"/>
                                             <constraint firstAttribute="trailing" secondItem="j6j-BM-HGv" secondAttribute="trailing" constant="20" id="9vi-PX-SZE"/>
+                                            <constraint firstItem="6cO-tw-52y" firstAttribute="leading" secondItem="clU-zm-92e" secondAttribute="leading" constant="24" id="CXr-Yr-HoO"/>
                                             <constraint firstItem="j6j-BM-HGv" firstAttribute="leading" secondItem="clU-zm-92e" secondAttribute="leading" constant="20" id="DmV-wD-CXH"/>
+                                            <constraint firstAttribute="bottom" secondItem="fD5-t7-Dsf" secondAttribute="bottom" constant="24" id="Edn-Ak-QXd"/>
                                             <constraint firstItem="O5H-52-pQL" firstAttribute="top" secondItem="clU-zm-92e" secondAttribute="top" constant="32" id="JhI-7f-b4l"/>
                                             <constraint firstAttribute="trailing" secondItem="kJT-kJ-Lbl" secondAttribute="trailing" constant="20" id="Jl0-pP-ZRe"/>
                                             <constraint firstItem="j6j-BM-HGv" firstAttribute="top" secondItem="kJT-kJ-Lbl" secondAttribute="bottom" constant="20" id="Q9F-cL-PIZ"/>
                                             <constraint firstItem="kJT-kJ-Lbl" firstAttribute="leading" secondItem="clU-zm-92e" secondAttribute="leading" constant="20" id="RWt-eZ-ZVR"/>
                                             <constraint firstAttribute="trailing" secondItem="O5H-52-pQL" secondAttribute="trailing" constant="20" id="Ssg-iw-2ac"/>
+                                            <constraint firstItem="fD5-t7-Dsf" firstAttribute="leading" secondItem="clU-zm-92e" secondAttribute="leading" constant="20" id="TF7-Ym-C5b"/>
+                                            <constraint firstItem="Iw0-qo-TbS" firstAttribute="top" secondItem="j6j-BM-HGv" secondAttribute="bottom" constant="8" id="hDI-Xf-4Bu"/>
+                                            <constraint firstItem="Iw0-qo-TbS" firstAttribute="centerX" secondItem="clU-zm-92e" secondAttribute="centerX" id="ldC-e7-7v9"/>
+                                            <constraint firstItem="fD5-t7-Dsf" firstAttribute="top" secondItem="6cO-tw-52y" secondAttribute="bottom" constant="8" id="mdw-YG-WIT"/>
+                                            <constraint firstAttribute="trailing" secondItem="fD5-t7-Dsf" secondAttribute="trailing" constant="20" id="o9W-mK-ICY"/>
                                             <constraint firstItem="kJT-kJ-Lbl" firstAttribute="top" secondItem="O5H-52-pQL" secondAttribute="bottom" constant="20" id="peP-hE-TZy"/>
+                                            <constraint firstItem="6cO-tw-52y" firstAttribute="top" secondItem="Iw0-qo-TbS" secondAttribute="bottom" constant="4" id="t80-sw-oeu"/>
                                         </constraints>
                                     </view>
                                 </subviews>
