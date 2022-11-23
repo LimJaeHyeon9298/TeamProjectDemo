@@ -6,6 +6,8 @@ import UIKit
 
 
 class ViewController: UIViewController {
+    
+    // -MARK: iboutlet
     //첫번째 뷰
     @IBOutlet weak var firstview: UIView!
     @IBOutlet weak var tempLabel: UILabel!
@@ -49,7 +51,7 @@ class ViewController: UIViewController {
     
     //첫번째 뷰를 눌렀을 때
     @objc func firstViewTapped(_ sender: UITapGestureRecognizer) {
-        performSegue(withIdentifier: "showFirstView", sender: nil)
+        performSegue(withIdentifier: "showFirstView", sender: sender)
     }
     
     @IBAction func pageChanged(_ sender: UIPageControl) {

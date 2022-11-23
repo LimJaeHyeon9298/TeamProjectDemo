@@ -483,11 +483,8 @@
                                                 </connections>
                                             </slider>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="N5b-4X-ejP">
-                                                <rect key="frame" x="20" y="526" width="374" height="240"/>
+                                                <rect key="frame" x="20" y="526" width="374" height="248"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="240" id="BCl-Wa-Vsd"/>
-                                                </constraints>
                                                 <string key="text">파리 협정은 2015년 유엔 기후 변화 회의에서 채택된 조약이다. 회의의 폐막일인 2015년 12월 12일 채택되었고,[1][2] 2016년 11월 4일부터 포괄적으로 적용되는 국제법으로서 효력이 발효되었다.[3] 회의 주최자 프랑스의 외무장관 로랑 파비우스는 "야심차고 균형잡힌" 이 계획은 지구 온난화에 있어서 "역사적 전환점"이라고 하였다.
 지구 평균온도 상승 폭을 산업화 이전 대비 2℃ 이하로 유지하고, 더 나아가 온도 상승 폭을 1.5℃ 이하로 제한하기 위해 함께 노력하기 위한 국제적인 협약이다. 각국은 온실가스 감축 목표를 스스로 정해 국제사회에 약속하고 이 목표를 실천해야 하며, 국제사회는 그 이행에 대해서 공동으로 검증하게 된다. 파리협정은 2016년 제23차 기후변화당사국총회에서 195개국의 만장일치로 채택되었다. 2017년 6월 미국의 탈퇴 선언과 2020년 11월 4일, 미국의 공식 탈퇴에도 불구하고, 여전히 세계 탄소 배출의 87%에 달하는 200여 개 국가가 협정을 이행중이다</string>
                                                 <color key="textColor" systemColor="labelColor"/>
@@ -513,6 +510,7 @@
                                             <constraint firstAttribute="trailing" secondItem="D4k-24-ozy" secondAttribute="trailing" constant="28" id="n2A-LY-ekd"/>
                                             <constraint firstAttribute="trailing" secondItem="N5b-4X-ejP" secondAttribute="trailing" constant="20" id="r1M-fS-hfg"/>
                                             <constraint firstItem="7LV-cA-GiR" firstAttribute="leading" secondItem="iio-tK-h1C" secondAttribute="leading" constant="20" id="rMf-Oj-QMB"/>
+                                            <constraint firstAttribute="bottom" secondItem="N5b-4X-ejP" secondAttribute="bottom" constant="24" id="ys0-D8-HoM"/>
                                         </constraints>
                                     </view>
                                 </subviews>
