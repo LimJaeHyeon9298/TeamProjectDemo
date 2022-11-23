@@ -13,15 +13,10 @@ class ViewController: UIViewController {
     @IBOutlet weak var LYtempView: UIView!
     @IBOutlet weak var LYWeatherImage: UIImageView!
     @IBOutlet weak var LYWeatherLabel: UILabel!
-    @IBOutlet weak var LYtempMaxLabel: UILabel!
-    @IBOutlet weak var LYtempMinLabel: UILabel!
     //캘린더 뷰
     @IBOutlet weak var calenderView: UIView!
     //기능 뷰
     @IBOutlet weak var otherOptionView: UIView!
-    //지역 뷰
-    @IBOutlet weak var regionView: UIView!
-    @IBOutlet weak var regionLabel: UILabel!
     //오늘 날씨 뷰
     @IBOutlet weak var weatherView: UIView!
     @IBOutlet weak var weatherTempLabel: UILabel!
@@ -46,7 +41,6 @@ class ViewController: UIViewController {
         LYtempView.layer.cornerRadius = 15
         calenderView.layer.cornerRadius = 15
         otherOptionView.layer.cornerRadius = 15
-        regionView.layer.cornerRadius = 15
         weatherView.layer.cornerRadius = 15
     }
     
