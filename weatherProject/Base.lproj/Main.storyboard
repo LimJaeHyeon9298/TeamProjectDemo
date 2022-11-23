@@ -203,6 +203,9 @@
                                             </view>
                                             <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="Iw0-qo-TbS">
                                                 <rect key="frame" x="149" y="442" width="116.5" height="26"/>
+                                                <connections>
+                                                    <action selector="pageChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="1SB-3G-Ely"/>
+                                                </connections>
                                             </pageControl>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="🗓10일간의 일기예보" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6cO-tw-52y">
                                                 <rect key="frame" x="24" y="472" width="141" height="19.5"/>
@@ -317,6 +320,9 @@
                         <outlet property="weatherDateLabel" destination="SaC-fn-M53" id="9qC-W5-A1Q"/>
                         <outlet property="weatherImage" destination="mgv-tG-XqH" id="6mi-Xw-rxy"/>
                         <outlet property="weatherLabel" destination="nM5-8t-W0X" id="3Hk-NS-HFY"/>
+                        <outlet property="weatherMaxTempLabel" destination="mEz-QS-V6x" id="OQQ-Jh-YQJ"/>
+                        <outlet property="weatherMinTempLabel" destination="wzC-5E-iTy" id="T65-rI-LJK"/>
+                        <outlet property="weatherPageControl" destination="Iw0-qo-TbS" id="35O-8Z-MJr"/>
                         <outlet property="weatherTempLabel" destination="BAu-1C-B7J" id="IGU-vV-3st"/>
                         <outlet property="weatherView" destination="j6j-BM-HGv" id="f2u-qa-TEg"/>
                         <segue destination="EiK-Gc-WGF" kind="presentation" identifier="showFirstView" modalPresentationStyle="automatic" id="EHV-yi-9ZT"/>

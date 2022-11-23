@@ -23,7 +23,10 @@ class ViewController: UIViewController {
     @IBOutlet weak var weatherDateLabel: UILabel!
     @IBOutlet weak var weatherImage: UIImageView!
     @IBOutlet weak var weatherLabel: UILabel!
-    
+    @IBOutlet weak var weatherMaxTempLabel: UILabel!
+    @IBOutlet weak var weatherMinTempLabel: UILabel!
+    //페이지컨트롤
+    @IBOutlet weak var weatherPageControl: UIPageControl!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,5 +52,8 @@ class ViewController: UIViewController {
         performSegue(withIdentifier: "showFirstView", sender: nil)
     }
     
+    @IBAction func pageChanged(_ sender: UIPageControl) {
+        
+    }
 }
 
