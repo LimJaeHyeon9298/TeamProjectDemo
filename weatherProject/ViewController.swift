@@ -36,8 +36,10 @@ class ViewController: UIViewController {
         
         //view를 클릭 가능하도록 설정
         self.firstview.isUserInteractionEnabled = true
+        self.calenderView.isUserInteractionEnabled = true
         //제쳐스 추가
         self.firstview.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.firstViewTapped)))
+        self.calenderView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.calenderViewTapped)))
     }
     
     func setupUI() {
@@ -52,6 +54,10 @@ class ViewController: UIViewController {
     //첫번째 뷰를 눌렀을 때
     @objc func firstViewTapped(_ sender: UITapGestureRecognizer) {
         performSegue(withIdentifier: "showFirstView", sender: sender)
+    }
+    
+    @objc func calenderViewTapped(_ sender: UITapGestureRecognizer) {
+        performSegue(withIdentifier: "showcalenderView", sender: sender)
     }
     
     @IBAction func pageChanged(_ sender: UIPageControl) {
