@@ -9,10 +9,11 @@ import UIKit
 
 class CalenderViewController: UIViewController {
 
+    var dateData: String?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        var a = 0
     }
 
 }
