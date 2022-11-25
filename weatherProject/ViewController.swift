@@ -49,6 +49,8 @@ class ViewController: UIViewController {
         calenderView.layer.cornerRadius = 15
         otherOptionView.layer.cornerRadius = 15
         weatherView.layer.cornerRadius = 15
+        
+//        firstview.backgroundColor = UIColor(patternImage: UIImage(named: "firstViewBack")!)
     }
     
     //첫번째 뷰를 눌렀을 때
