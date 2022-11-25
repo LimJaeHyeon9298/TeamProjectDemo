@@ -55,9 +55,10 @@ class ViewController: UIViewController {
     @objc func firstViewTapped(_ sender: UITapGestureRecognizer) {
         performSegue(withIdentifier: "showFirstView", sender: sender)
     }
-    
+    //캘린더뷰를 눌렀을 때
     @objc func calenderViewTapped(_ sender: UITapGestureRecognizer) {
         performSegue(withIdentifier: "showcalenderView", sender: sender)
+        
     }
     
     @IBAction func pageChanged(_ sender: UIPageControl) {

@@ -9,11 +9,19 @@ import UIKit
 
 class CalenderViewController: UIViewController {
 
-    var dateData: String?
+    @IBOutlet weak var datePicker: UIDatePicker!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
     }
-
+    
+    @IBAction func selectButtonTapped(_ sender: UIButton) {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy.MM.dd"
+        
+        print(formatter.string(from: datePicker.date))
+        self.dismiss(animated: true)
+    }
 }
