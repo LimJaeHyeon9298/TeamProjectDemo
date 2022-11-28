@@ -55,6 +55,8 @@ class ViewController: UIViewController {
     
     //첫번째 뷰를 눌렀을 때
     @objc func firstViewTapped(_ sender: UITapGestureRecognizer) {
+//        let firstViewController = FirstViewController()
+//        self.present(firstViewController, animated: true)
         performSegue(withIdentifier: "showFirstView", sender: sender)
     }
     //캘린더뷰를 눌렀을 때

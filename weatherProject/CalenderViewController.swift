@@ -9,12 +9,15 @@ import UIKit
 
 class CalenderViewController: UIViewController {
 
+    
+    @IBOutlet weak var baseView: UIView!
     @IBOutlet weak var datePicker: UIDatePicker!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        baseView.layer.cornerRadius = 15
     }
     
     @IBAction func selectButtonTapped(_ sender: UIButton) {
@@ -23,5 +26,9 @@ class CalenderViewController: UIViewController {
         
         print(formatter.string(from: datePicker.date))
         self.dismiss(animated: true)
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+//        self.dismiss(animated: true)
     }
 }
