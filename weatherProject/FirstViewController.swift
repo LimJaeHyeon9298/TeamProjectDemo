@@ -22,6 +22,7 @@ class FirstViewController: UIViewController {
     }
     
     func setupUI() {
+        
         yearLabel.text = "년도를 선택하세요."
         tempLabel.text = "온도"
         

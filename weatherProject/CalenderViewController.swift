@@ -10,14 +10,20 @@ import UIKit
 class CalenderViewController: UIViewController {
 
     
-    @IBOutlet weak var baseView: UIView!
     @IBOutlet weak var datePicker: UIDatePicker!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        baseView.layer.cornerRadius = 15
+        //모달의 높이를 중간으로 설정
+        if #available(iOS 15.0, *) {
+            if let sheetPresentationController = sheetPresentationController {
+                sheetPresentationController.detents = [.medium()]
+            }
+        } else {
+        }
+//        baseView.layer.cornerRadius = 15
     }
     
     @IBAction func selectButtonTapped(_ sender: UIButton) {
