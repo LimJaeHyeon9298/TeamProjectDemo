@@ -28,7 +28,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var weatherLabel: UILabel!
     @IBOutlet weak var weatherMaxTempLabel: UILabel!
     @IBOutlet weak var weatherMinTempLabel: UILabel!
-    //페이지컨트롤
+    //페이지컨트
     @IBOutlet weak var weatherPageControl: UIPageControl!
     
     // 받아온 데이터를 저장할 프로퍼티
