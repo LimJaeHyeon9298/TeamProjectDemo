@@ -600,7 +600,7 @@
                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" style="inline" translatesAutoresizingMaskIntoConstraints="NO" id="leY-TK-tLE">
                                 <rect key="frame" x="20" y="106" width="374" height="345.5"/>
                             </datePicker>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OrJ-bD-RyC">
+                            <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OrJ-bD-RyC">
                                 <rect key="frame" x="20" y="68" width="32" height="34"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -619,7 +619,6 @@
                         <constraints>
                             <constraint firstItem="OrJ-bD-RyC" firstAttribute="leading" secondItem="UQZ-nn-miO" secondAttribute="leading" constant="20" id="ArZ-lu-7lY"/>
                             <constraint firstItem="leY-TK-tLE" firstAttribute="top" secondItem="OrJ-bD-RyC" secondAttribute="bottom" constant="4" id="BFB-dY-ASC"/>
-                            <constraint firstItem="UQZ-nn-miO" firstAttribute="bottom" secondItem="leY-TK-tLE" secondAttribute="bottom" constant="386" id="CVa-fW-S3J"/>
                             <constraint firstItem="UQZ-nn-miO" firstAttribute="trailing" secondItem="leY-TK-tLE" secondAttribute="trailing" constant="20" id="Qvz-CZ-bWc"/>
                             <constraint firstItem="OrJ-bD-RyC" firstAttribute="top" secondItem="UQZ-nn-miO" secondAttribute="top" constant="20" id="SsD-2S-bPl"/>
                             <constraint firstItem="leY-TK-tLE" firstAttribute="leading" secondItem="UQZ-nn-miO" secondAttribute="leading" constant="20" id="eX0-Iy-dHa"/>
