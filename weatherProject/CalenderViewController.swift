@@ -18,9 +18,7 @@ class CalenderViewController: UIViewController {
             if let sheetPresentationController = sheetPresentationController {
                 sheetPresentationController.detents = [.medium(), .large()]
             }
-        } else {
         }
-//        baseView.layer.cornerRadius = 15
     }
     
     @IBAction func selectButtonTapped(_ sender: UIButton) {
