@@ -39,6 +39,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        setupWeatherUI()
         
         //view를 클릭 가능하도록 설정
         self.firstview.isUserInteractionEnabled = true
@@ -72,10 +73,16 @@ class ViewController: UIViewController {
         weatherView.layer.cornerRadius = 15
         
 //        firstview.backgroundColor = UIColor(patternImage: UIImage(named: "firstViewBack")!)
+    }
+    
+    //오늘 날씨뷰 ui
+    func setupWeatherUI() {
+        //오늘 날짜 표시
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy년 MM월 d일 (E)"
+        weatherDateLabel.text = formatter.string(from: Date())
         
-        weatherDateLabel.text = "\(Date())"
         weatherRegionLabel.text = "서울"
-        
     }
     
     //첫번째 뷰를 눌렀을 때
