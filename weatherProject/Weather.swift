@@ -22,3 +22,5 @@ struct Weather: Decodable {
     let description: String
     let icon: String
 }
+
+

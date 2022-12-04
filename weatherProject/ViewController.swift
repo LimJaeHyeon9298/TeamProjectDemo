@@ -3,9 +3,10 @@
 
 
 import UIKit
+import WeatherKit
+import CoreLocation
 
-
-class ViewController: UIViewController {
+class ViewController: UIViewController, CLLocationManagerDelegate {
     
     // -MARK: iboutlet
     //첫번째 뷰
@@ -36,8 +37,20 @@ class ViewController: UIViewController {
     var main: Main?
     var name: String?
     
+    
+    //    //날씨서비스 생성
+    //    let weatherService = WeatherService()
+    //    //위치매니저 생성
+    //    var locationManager: CLLocationManager!
+    //    //서울의 좌표
+    //    let seoul = CLLocation(latitude: 37.5665, longitude: 126.9779)
+    //    //    //날씨 데이터 저장
+    //    var weather: Weather?
+    //    var currentWeather: CurrentWeather?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        //ui함수
         setupUI()
         setupWeatherUI()
         
@@ -64,6 +77,31 @@ class ViewController: UIViewController {
         }
     }
     
+    //    override func viewWillAppear(_ animated: Bool) {
+    //        //위치 매니저 생성 및 설정
+    //        locationManager = CLLocationManager()
+    //        locationManager.delegate = self
+    //        locationManager.requestWhenInUseAuthorization()
+    //
+    //        getCurrentWeather(CLlocation: seoul) {
+    //            DispatchQueue.main.async {
+    //                self.setWeatherUI()
+    //            }
+    //        }
+    //    }
+    //    //weatherkit으로 현재날씨 가져오기
+    //    func getCurrentWeather(CLlocation: CLLocation, completion: @escaping () -> Void){
+    //        Task {
+    //            do {
+    //                let result = try await weatherService.weather(for: CLlocation)
+    //                weather? = result
+    //            } catch {
+    //                print(error)
+    //            }
+    //        }
+    //        completion()
+    //    }
+    
     func setupUI() {
         //view들 모서리 커브
         firstview.layer.cornerRadius = 15
@@ -72,7 +110,7 @@ class ViewController: UIViewController {
         otherOptionView.layer.cornerRadius = 15
         weatherView.layer.cornerRadius = 15
         
-//        firstview.backgroundColor = UIColor(patternImage: UIImage(named: "firstViewBack")!)
+        //        firstview.backgroundColor = UIColor(patternImage: UIImage(named: "firstViewBack")!)
     }
     
     //오늘 날씨뷰 ui
@@ -105,4 +143,3 @@ class ViewController: UIViewController {
         weatherMinTempLabel.text = "최저:\(Int(main!.temp_min - 273.15))ºC"
     }
 }
-
