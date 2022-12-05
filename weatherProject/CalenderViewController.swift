@@ -17,7 +17,7 @@ class CalenderViewController: UIViewController {
         //모달의 높이를 중간으로 설정
         if #available(iOS 15.0, *) {
             if let sheetPresentationController = sheetPresentationController {
-                sheetPresentationController.detents = [.medium(), .large()]
+                sheetPresentationController.detents = [.medium()]
             }
         }
     }

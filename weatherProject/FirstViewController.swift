@@ -8,7 +8,10 @@ class FirstViewController: UIViewController {
 
     @IBOutlet weak var yearLabel: UILabel!
     @IBOutlet weak var tempLabel: UILabel!
+    @IBOutlet weak var yearView: UIView!
+    @IBOutlet weak var tempView: UIView!
     
+    @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var slider: UISlider!
     
     var dates = 1950
@@ -25,6 +28,10 @@ class FirstViewController: UIViewController {
         
         yearLabel.text = "년도를 선택하세요."
         tempLabel.text = "온도"
+        
+        yearView.layer.cornerRadius = 10
+        tempView.layer.cornerRadius = 10
+        textView.layer.cornerRadius = 0
         
         slider.value = 0.5
     }

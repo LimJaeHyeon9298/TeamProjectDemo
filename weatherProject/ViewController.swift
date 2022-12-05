@@ -20,7 +20,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     @IBOutlet weak var calenderView: UIView!
     //기능 뷰
     @IBOutlet weak var otherOptionView: UIView!
-    //오늘 날씨 뷰
+    //현재 날씨 뷰
     @IBOutlet weak var weatherView: UIView!
     @IBOutlet weak var weatherRegionLabel: UILabel!
     @IBOutlet weak var weatherTempLabel: UILabel!
@@ -29,7 +29,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     @IBOutlet weak var weatherLabel: UILabel!
     @IBOutlet weak var weatherMaxTempLabel: UILabel!
     @IBOutlet weak var weatherMinTempLabel: UILabel!
-    //페이지컨트
+    //페이지컨트롤
     @IBOutlet weak var weatherPageControl: UIPageControl!
     
     // 받아온 데이터를 저장할 프로퍼티
@@ -57,52 +57,54 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         //view를 클릭 가능하도록 설정
         self.firstview.isUserInteractionEnabled = true
         self.calenderView.isUserInteractionEnabled = true
+        self.weatherView.isUserInteractionEnabled = true
         //제쳐스 추가
         self.firstview.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.firstViewTapped)))
         self.calenderView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.calenderViewTapped)))
+        self.weatherView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.weatherViewTapped)))
         
     }
     
-        override func viewWillAppear(_ animated: Bool) {
-            // data fetch(데이터 요청)
-            WeatherService().getWeather { result in
-                switch result {
-                case .success(let weatherResponse):
-                    DispatchQueue.main.async {
-                        self.weather = weatherResponse.weather.first
-                        self.main = weatherResponse.main
-                        self.name = weatherResponse.name
-                        self.setWeatherUI()
-                    }
-                case .failure(_ ):
-                    print("error")
+    override func viewWillAppear(_ animated: Bool) {
+        // data fetch(데이터 요청)
+        WeatherService().getWeather { result in
+            switch result {
+            case .success(let weatherResponse):
+                DispatchQueue.main.async {
+                    self.weather = weatherResponse.weather.first
+                    self.main = weatherResponse.main
+                    self.name = weatherResponse.name
+                    self.setWeatherUI()
                 }
+            case .failure(_ ):
+                print("error")
             }
-            
-//            //위치 매니저 생성 및 설정
-//            locationManager = CLLocationManager()
-//            locationManager.delegate = self
-//            locationManager.requestWhenInUseAuthorization()
-//
-//            getCurrentWeather(CLlocation: seoul) {
-//                DispatchQueue.main.async {
-//                    self.setWeatherUI()
-//                }
-//            }
-            
         }
-//        //weatherkit으로 현재날씨 가져오기
-//        func getCurrentWeather(CLlocation: CLLocation, completion: @escaping () -> Void){
-//            Task {
-//                do {
-//                    let result = try await weatherService.weather(for: CLlocation)
-//                    weather? = result
-//                } catch {
-//                    print(error)
-//                }
-//            }
-//            completion()
-//        }
+        
+        //            //위치 매니저 생성 및 설정
+        //            locationManager = CLLocationManager()
+        //            locationManager.delegate = self
+        //            locationManager.requestWhenInUseAuthorization()
+        //
+        //            getCurrentWeather(CLlocation: seoul) {
+        //                DispatchQueue.main.async {
+        //                    self.setWeatherUI()
+        //                }
+        //            }
+        
+    }
+    //        //weatherkit으로 현재날씨 가져오기
+    //        func getCurrentWeather(CLlocation: CLLocation, completion: @escaping () -> Void){
+    //            Task {
+    //                do {
+    //                    let result = try await weatherService.weather(for: CLlocation)
+    //                    weather? = result
+    //                } catch {
+    //                    print(error)
+    //                }
+    //            }
+    //            completion()
+    //        }
     
     func setupUI() {
         //view들 모서리 커브
@@ -131,9 +133,13 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     }
     //캘린더뷰를 눌렀을 때
     @objc func calenderViewTapped(_ sender: UITapGestureRecognizer) {
-        performSegue(withIdentifier: "showcalenderView", sender: sender)
-        
+        performSegue(withIdentifier: "showCalenderView", sender: sender)
     }
+    //현재 날씨 뷰를 눌렀을 때
+    @objc func weatherViewTapped(_ sender: UITapGestureRecognizer) {
+        performSegue(withIdentifier: "showCurrentWeatherView", sender: sender)
+    }
+    
     //페이지컨트롤
     @IBAction func pageChanged(_ sender: UIPageControl) {
         
