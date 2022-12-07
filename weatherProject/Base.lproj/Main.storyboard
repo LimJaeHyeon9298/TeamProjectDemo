@@ -756,6 +756,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="backgroundView" destination="z8i-Dl-22R" id="mU8-Ck-1qv"/>
                         <outlet property="searchBar" destination="e78-oB-4MI" id="14f-bc-1p5"/>
                         <outlet property="weatherDateLabel" destination="3Ck-7f-MXm" id="eej-Ei-KaH"/>
                         <outlet property="weatherImage" destination="1OZ-LS-Uka" id="n7Y-QE-t0H"/>
