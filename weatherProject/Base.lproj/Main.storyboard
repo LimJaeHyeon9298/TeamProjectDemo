@@ -723,34 +723,34 @@
                                                     <constraint firstAttribute="width" secondItem="jfy-M4-7BB" secondAttribute="height" multiplier="3:1" id="T4y-qy-973"/>
                                                 </constraints>
                                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="LHX-ct-rVV">
-                                                    <size key="itemSize" width="71" height="122"/>
+                                                    <size key="itemSize" width="68" height="122"/>
                                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                 </collectionViewFlowLayout>
                                                 <cells>
                                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="WeatherCollectionViewCell" id="06e-F0-BaW" customClass="WeatherCollectionViewCell" customModule="weatherProject" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="1.5" width="71" height="122"/>
+                                                        <rect key="frame" x="0.0" y="1.5" width="68" height="122"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="R5a-Tf-GbR">
-                                                            <rect key="frame" x="0.0" y="0.0" width="71" height="122"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="68" height="122"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <subviews>
                                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0gU-99-G6y">
-                                                                    <rect key="frame" x="19.5" y="45" width="32" height="32"/>
+                                                                    <rect key="frame" x="18" y="45" width="32" height="32"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" constant="32" id="0RD-6f-0v3"/>
                                                                         <constraint firstAttribute="height" constant="32" id="PPy-4l-FPE"/>
                                                                     </constraints>
                                                                 </imageView>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="오늘" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DHA-hb-DDh">
-                                                                    <rect key="frame" x="21.5" y="16" width="28" height="19.5"/>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="지금" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DHA-hb-DDh">
+                                                                    <rect key="frame" x="20" y="16" width="28" height="19.5"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="온도º" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v1h-dT-6wZ">
-                                                                    <rect key="frame" x="18.5" y="86.5" width="34.5" height="19.5"/>
+                                                                    <rect key="frame" x="17" y="86.5" width="34.5" height="19.5"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
@@ -765,7 +765,12 @@
                                                                 <constraint firstItem="DHA-hb-DDh" firstAttribute="top" secondItem="R5a-Tf-GbR" secondAttribute="top" constant="16" id="dHl-CZ-0eH"/>
                                                             </constraints>
                                                         </collectionViewCellContentView>
-                                                        <size key="customSize" width="71" height="122"/>
+                                                        <size key="customSize" width="68" height="122"/>
+                                                        <connections>
+                                                            <outlet property="weatherCollectionDate" destination="DHA-hb-DDh" id="q96-eh-cQx"/>
+                                                            <outlet property="weatherCollectionImage" destination="0gU-99-G6y" id="hAU-ca-cu9"/>
+                                                            <outlet property="weatherCollectionTemp" destination="v1h-dT-6wZ" id="ii4-uR-Ysi"/>
+                                                        </connections>
                                                     </collectionViewCell>
                                                 </cells>
                                             </collectionView>

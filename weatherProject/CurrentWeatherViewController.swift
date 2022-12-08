@@ -24,6 +24,7 @@ class CurrentWeatherViewController: UIViewController, UISearchBarDelegate, UICol
     @IBOutlet weak var weatherPageControl: UIPageControl!
     @IBOutlet weak var weatherCollectionView: UICollectionView!
     
+//    var dateArray: [DateFormatter] =
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -66,11 +67,19 @@ class CurrentWeatherViewController: UIViewController, UISearchBarDelegate, UICol
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 27
+        return 24
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = weatherCollectionView.dequeueReusableCell(withReuseIdentifier: "WeatherCollectionViewCell", for: indexPath) as! WeatherCollectionViewCell
+        
+        let currentHour = Calendar.current
+        var hourArray: [String] = ["지금"]
+        for i in 1...23 {
+            hourArray.insert(String(currentHour.component(.hour, from: Date(timeIntervalSinceNow: 3600 * Double(i)))) + "시", at: i)
+        }
+        
+        cell.weatherCollectionDate.text = "\(hourArray[indexPath.row])"
         
         return cell
     }
