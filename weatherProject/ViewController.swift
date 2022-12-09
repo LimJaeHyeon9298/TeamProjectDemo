@@ -165,6 +165,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITableViewDa
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = weekWeatherTableView.dequeueReusableCell(withIdentifier: "WeekWeatherTableViewCell", for: indexPath) as! WeekWeatherTableViewCell
+        cell.selectionStyle = .none
+        
         let formatter = DateFormatter()
         formatter.dateFormat = "EEE"
         var weekDayArray: [String] = ["오늘"]
@@ -173,15 +175,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITableViewDa
         for i in 1...9 {
             weekDayArray.insert(formatter.string(from: Date(timeIntervalSinceNow: 86400 * Double(i))), at: i)
         }
-        
-        for i in 0...9 {
-            if let weather = weather {
-                weekWeatherMinTempArray.insert("최저:\(Int(weather.dailyForecast[i].lowTemperature.value))º", at: i)
-            }
-        }
-        
+                
         cell.weekDay.text = weekDayArray[indexPath.row]
-//        cell.weekWeatherMinTemp.text = "\(weekWeatherMinTempArray[indexPath.row])"
         
         return cell
     }
