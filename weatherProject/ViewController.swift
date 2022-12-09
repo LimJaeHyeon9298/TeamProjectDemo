@@ -32,21 +32,21 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     //페이지컨트롤
     @IBOutlet weak var weatherPageControl: UIPageControl!
     
-    // 받아온 데이터를 저장할 프로퍼티
-    var weather: Weather?
-    var main: Main?
-    var name: String?
+        // 받아온 데이터를 저장할 프로퍼티
+        var weather: Weather?
+        var main: Main?
+        var name: String?
     
     
-    //    //날씨서비스 생성
-    //    let weatherService = WeatherService()
-    //    //위치매니저 생성
-    //    var locationManager: CLLocationManager!
-    //    //서울의 좌표
-    //    let seoul = CLLocation(latitude: 37.5665, longitude: 126.9779)
-    //    //    //날씨 데이터 저장
-    //    var weather: Weather?
-    //    var currentWeather: CurrentWeather?
+//    //날씨서비스 생성
+//    let weatherService = WeatherService()
+//    //위치매니저 생성
+//    var locationManager: CLLocationManager!
+//    //서울의 좌표
+//    let seoul = CLLocation(latitude: 37.7749, longitude: 122.4194)
+//    //    //날씨 데이터 저장
+//    var weather: Weather?
+//    var currentWeather: CurrentWeather?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -66,46 +66,55 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        // data fetch(데이터 요청)
-        WeatherService().getWeather { result in
-            switch result {
-            case .success(let weatherResponse):
-                DispatchQueue.main.async {
-                    self.weather = weatherResponse.weather.first
-                    self.main = weatherResponse.main
-                    self.name = weatherResponse.name
-                    self.setWeatherUI()
+                // data fetch(데이터 요청)
+                WeatherService().getWeather { result in
+                    switch result {
+                    case .success(let weatherResponse):
+                        DispatchQueue.main.async {
+                            self.weather = weatherResponse.weather.first
+                            self.main = weatherResponse.main
+                            self.name = weatherResponse.name
+                            self.setWeatherUI()
+                        }
+                    case .failure(_ ):
+                        print("error")
+                    }
                 }
-            case .failure(_ ):
-                print("error")
-            }
-        }
         
-        //            //위치 매니저 생성 및 설정
-        //            locationManager = CLLocationManager()
-        //            locationManager.delegate = self
-        //            locationManager.requestWhenInUseAuthorization()
-        //
-        //            getCurrentWeather(CLlocation: seoul) {
-        //                DispatchQueue.main.async {
-        //                    self.setWeatherUI()
-        //                }
-        //            }
+        
+        
+//        //위치 매니저 생성 및 설정
+//        locationManager = CLLocationManager()
+//        locationManager.delegate = self
+//        locationManager.requestWhenInUseAuthorization()
+//        //위치 정확도
+//        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+//        //위치 업데이트
+//        locationManager.startUpdatingLocation()
+//        //위도 경도 가져오기
+//        let coor = locationManager.location!.coordinate
+//        let currentLocation = CLLocation(latitude: coor.latitude, longitude: coor.longitude)
+//
+//        getCurrentWeather(CLlocation: currentLocation) {
+//            DispatchQueue.main.async {
+//                self.setWeatherUI()
+//            }
+//        }
         
     }
-    //        //weatherkit으로 현재날씨 가져오기
-    //        func getCurrentWeather(CLlocation: CLLocation, completion: @escaping () -> Void){
-    //            Task {
-    //                do {
-    //                    let result = try await weatherService.weather(for: CLlocation)
-    //                    weather? = result
-    //                } catch {
-    //                    print(error)
-    //                }
-    //            }
-    //            completion()
-    //        }
-    
+//    //weatherkit으로 현재날씨 가져오기
+//    func getCurrentWeather(CLlocation: CLLocation, completion: @escaping () -> Void){
+//        Task {
+//            do {
+//                let result = try await weatherService.weather(for: CLlocation)
+//                weather? = result
+//            } catch {
+//                print(error)
+//            }
+//        }
+//        completion()
+//    }
+//
     func setupUI() {
         //view들 모서리 커브
         firstview.layer.cornerRadius = 15
@@ -146,8 +155,9 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     }
     //현재 온도 세팅
     private func setWeatherUI() {
-        weatherTempLabel.text = "\(Int(main!.temp - 273.15))ºC"
-        weatherMaxTempLabel.text = "최고:\(Int(main!.temp_max - 273.15))ºC"
-        weatherMinTempLabel.text = "최저:\(Int(main!.temp_min - 273.15))ºC"
+                weatherTempLabel.text = "\(Int(main!.temp - 273.15))ºC"
+                weatherMaxTempLabel.text = "최고:\(Int(main!.temp_max - 273.15))ºC"
+                weatherMinTempLabel.text = "최저:\(Int(main!.temp_min - 273.15))ºC"
+//        weatherTempLabel.text = "\(weather?.currentWeather.temperature.value)"
     }
 }

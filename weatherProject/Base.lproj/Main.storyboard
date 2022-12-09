@@ -717,8 +717,8 @@
                                                 </connections>
                                             </searchBar>
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="jfy-M4-7BB">
-                                                <rect key="frame" x="20" y="351" width="374" height="124.5"/>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <rect key="frame" x="20" y="352" width="374" height="124.5"/>
+                                                <color key="backgroundColor" systemColor="systemGray6Color"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="jfy-M4-7BB" secondAttribute="height" multiplier="3:1" id="T4y-qy-973"/>
                                                 </constraints>
@@ -774,24 +774,34 @@
                                                     </collectionViewCell>
                                                 </cells>
                                             </collectionView>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Orv-OO-3XQ">
+                                                <rect key="frame" x="20" y="351" width="374" height="1"/>
+                                                <color key="backgroundColor" systemColor="systemGrayColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="1" id="m9A-Rs-oIe"/>
+                                                </constraints>
+                                            </view>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemGray6Color"/>
                                         <constraints>
                                             <constraint firstItem="zHq-5J-X9S" firstAttribute="top" secondItem="rGy-gl-vjN" secondAttribute="bottom" constant="8" id="1Mk-QE-kWu"/>
                                             <constraint firstItem="2aI-D8-L78" firstAttribute="top" secondItem="z8i-Dl-22R" secondAttribute="top" constant="12" id="3ev-mE-naK"/>
                                             <constraint firstItem="rGy-gl-vjN" firstAttribute="width" secondItem="rGy-gl-vjN" secondAttribute="height" multiplier="2:1" id="9uI-sE-hww"/>
-                                            <constraint firstItem="jfy-M4-7BB" firstAttribute="top" secondItem="zHq-5J-X9S" secondAttribute="bottom" constant="20" id="HjP-ik-X36"/>
                                             <constraint firstAttribute="trailing" secondItem="2aI-D8-L78" secondAttribute="trailing" constant="20" id="Ixz-WN-eLg"/>
                                             <constraint firstItem="e78-oB-4MI" firstAttribute="leading" secondItem="z8i-Dl-22R" secondAttribute="leading" constant="12" id="J6x-fO-WeN"/>
                                             <constraint firstItem="rGy-gl-vjN" firstAttribute="leading" secondItem="z8i-Dl-22R" secondAttribute="leading" constant="20" id="Oe5-DS-VTN"/>
                                             <constraint firstAttribute="height" priority="250" constant="814" id="P0M-0S-AYy"/>
+                                            <constraint firstAttribute="trailing" secondItem="Orv-OO-3XQ" secondAttribute="trailing" constant="20" id="TwK-Vf-O8j"/>
                                             <constraint firstItem="zHq-5J-X9S" firstAttribute="centerX" secondItem="z8i-Dl-22R" secondAttribute="centerX" id="aek-8W-HRS"/>
                                             <constraint firstItem="AWg-ES-JRU" firstAttribute="leading" secondItem="z8i-Dl-22R" secondAttribute="leading" constant="8" id="cZ2-zI-vgr"/>
                                             <constraint firstAttribute="trailing" secondItem="jfy-M4-7BB" secondAttribute="trailing" constant="20" id="hsQ-hw-PPM"/>
                                             <constraint firstItem="jfy-M4-7BB" firstAttribute="leading" secondItem="z8i-Dl-22R" secondAttribute="leading" constant="20" id="jJs-ug-aLx"/>
                                             <constraint firstAttribute="trailing" secondItem="rGy-gl-vjN" secondAttribute="trailing" constant="20" id="juJ-yy-8mX"/>
                                             <constraint firstItem="rGy-gl-vjN" firstAttribute="top" secondItem="e78-oB-4MI" secondAttribute="bottom" constant="4" id="lUd-op-BEP"/>
+                                            <constraint firstItem="jfy-M4-7BB" firstAttribute="top" secondItem="Orv-OO-3XQ" secondAttribute="bottom" id="nGP-Do-qDf"/>
+                                            <constraint firstItem="Orv-OO-3XQ" firstAttribute="leading" secondItem="z8i-Dl-22R" secondAttribute="leading" constant="20" id="nby-Sx-8nU"/>
                                             <constraint firstItem="e78-oB-4MI" firstAttribute="top" secondItem="AWg-ES-JRU" secondAttribute="bottom" constant="4" id="oGi-T1-JKy"/>
+                                            <constraint firstItem="Orv-OO-3XQ" firstAttribute="top" secondItem="zHq-5J-X9S" secondAttribute="bottom" constant="20" id="qjp-2g-Ras"/>
                                             <constraint firstAttribute="trailing" secondItem="e78-oB-4MI" secondAttribute="trailing" constant="12" id="uxT-jJ-3kB"/>
                                             <constraint firstItem="AWg-ES-JRU" firstAttribute="top" secondItem="z8i-Dl-22R" secondAttribute="top" constant="12" id="yUl-6Y-gfR"/>
                                         </constraints>
