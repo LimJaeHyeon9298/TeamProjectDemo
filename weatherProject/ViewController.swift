@@ -6,7 +6,7 @@ import UIKit
 import WeatherKit
 import CoreLocation
 
-class ViewController: UIViewController, CLLocationManagerDelegate {
+class ViewController: UIViewController, CLLocationManagerDelegate, UITableViewDataSource, UITableViewDelegate {
     
     // -MARK: iboutlet
     //첫번째 뷰
@@ -31,6 +31,9 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     @IBOutlet weak var weatherMinTempLabel: UILabel!
     //페이지컨트롤
     @IBOutlet weak var weatherPageControl: UIPageControl!
+    //테이블뷰
+    @IBOutlet weak var weekWeatherTableView: UITableView!
+    
     
     //    // 받아온 데이터를 저장할 프로퍼티
     //    var weather: Weather?
@@ -78,6 +81,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         //            }
         //        }
         
+        weekWeatherTableView.delegate = self
+        weekWeatherTableView.dataSource = self
         
         //위치 매니저 생성 및 설정
         let locationManager = CLLocationManager()
@@ -153,6 +158,41 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         weatherImage.image = UIImage(named: "\(weather!.currentWeather.symbolName)")
         print(weather!.currentWeather.symbolName)
     }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 10
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = weekWeatherTableView.dequeueReusableCell(withIdentifier: "WeekWeatherTableViewCell", for: indexPath) as! WeekWeatherTableViewCell
+        let formatter = DateFormatter()
+        formatter.dateFormat = "EEE"
+        var weekDayArray: [String] = ["오늘"]
+        var weekWeatherMinTempArray: [String] = []
+        
+        for i in 1...9 {
+            weekDayArray.insert(formatter.string(from: Date(timeIntervalSinceNow: 86400 * Double(i))), at: i)
+        }
+        
+        for i in 0...9 {
+            if let weather = weather {
+                weekWeatherMinTempArray.insert("최저:\(Int(weather.dailyForecast[i].lowTemperature.value))º", at: i)
+            }
+        }
+        
+        cell.weekDay.text = weekDayArray[indexPath.row]
+//        cell.weekWeatherMinTemp.text = "\(weekWeatherMinTempArray[indexPath.row])"
+        
+        return cell
+    }
+}
+
+class WeekWeatherTableViewCell: UITableViewCell {
+    
+    @IBOutlet weak var weekDay: UILabel!
+    @IBOutlet weak var weekWeatherMinTemp: UILabel!
+    @IBOutlet weak var weekWeatherMaxTemp: UILabel!
+    @IBOutlet weak var weekWeatherImage: UIImageView!
 }
 
 

@@ -3,6 +3,8 @@
 
 
 import UIKit
+import WeatherKit
+import CoreLocation
 
 class CurrentWeatherViewController: UIViewController, UISearchBarDelegate, UICollectionViewDelegate, UICollectionViewDataSource {
     
@@ -22,9 +24,13 @@ class CurrentWeatherViewController: UIViewController, UISearchBarDelegate, UICol
     @IBOutlet weak var weatherMinTempLabel: UILabel!
     //페이지 컨트롤
     @IBOutlet weak var weatherPageControl: UIPageControl!
+    //컬렉션뷰
     @IBOutlet weak var weatherCollectionView: UICollectionView!
-    
-//    var dateArray: [DateFormatter] =
+        
+    //서울의 좌표
+    let seoul = CLLocation(latitude: 37.5666, longitude: 126.9784)
+    //    //날씨 데이터 저장
+    var weather: Weather?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,13 +45,56 @@ class CurrentWeatherViewController: UIViewController, UISearchBarDelegate, UICol
         self.backgroundView.isUserInteractionEnabled = true
         //기본뷰 액션 추가
         self.backgroundView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.backgroundViewTapped)))
+        
+        //위치 매니저 생성 및 설정
+        let locationManager = CLLocationManager()
+        locationManager.requestWhenInUseAuthorization()
+        //위치 정확도
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        //위치 업데이트
+        locationManager.startUpdatingLocation()
+        //위도 경도 가져오기
+        let coor = locationManager.location!.coordinate
+        let currentLocation = CLLocation(latitude: coor.latitude, longitude: coor.longitude)
+        let weatherService = WeatherService.shared
+        
+        DispatchQueue.main.async {
+            Task {
+                do {
+                    self.weather = try await weatherService.weather(for: self.seoul)
+                    self.setWeatherUI()
+                } catch {
+                    print("error")
+                }
+            }
+        }
     }
+    
     //view세팅
     func setupUI() {
         weatherView.layer.cornerRadius = 15
         searchBar.layer.cornerRadius = 15
         
+        //오늘 날짜 표시
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy년 MM월 d일 (E)"
+        weatherDateLabel.text = formatter.string(from: Date())
+        
+        weatherRegionLabel.text = "서울"
     }
+    
+    //현재 온도 세팅
+    private func setWeatherUI() {
+        //        weatherTempLabel.text = "\(Int(main!.temp - 273.15))ºC"
+        //        weatherMaxTempLabel.text = "최고:\(Int(main!.temp_max - 273.15))ºC"
+        //        weatherMinTempLabel.text = "최저:\(Int(main!.temp_min - 273.15))ºC"
+        weatherTempLabel.text = "\(Int(weather!.currentWeather.temperature.value))º"
+        weatherMaxTempLabel.text = "최고:\(Int(weather!.dailyForecast[0].highTemperature.value))º"
+        weatherMinTempLabel.text = "최저:\(Int(weather!.dailyForecast[0].lowTemperature.value))º"
+        weatherImage.image = UIImage(named: "\(weather!.currentWeather.symbolName)")
+        print(weather!.currentWeather.symbolName)
+    }
+    
     //back버튼을 눌렀을때
     @IBAction func backButtonTapped(_ sender: UIButton) {
         self.dismiss(animated: true)
@@ -75,11 +124,15 @@ class CurrentWeatherViewController: UIViewController, UISearchBarDelegate, UICol
         
         let currentHour = Calendar.current
         var hourArray: [String] = ["지금"]
+        var simbalArray: [String] = []
+        
         for i in 1...23 {
             hourArray.insert(String(currentHour.component(.hour, from: Date(timeIntervalSinceNow: 3600 * Double(i)))) + "시", at: i)
+//            simbalArray.insert(weather!.dailyForecast[i - 1].symbolName, at: i - 1)
         }
         
         cell.weatherCollectionDate.text = "\(hourArray[indexPath.row])"
+//        cell.weatherCollectionImage.image = UIImage(named: "\(simbalArray[indexPath.row])")
         
         return cell
     }
