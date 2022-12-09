@@ -220,7 +220,7 @@
                                                     <action selector="pageChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="1SB-3G-Ely"/>
                                                 </connections>
                                             </pageControl>
-                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="fD5-t7-Dsf">
+                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="fD5-t7-Dsf">
                                                 <rect key="frame" x="20" y="500" width="374" height="294"/>
                                                 <color key="backgroundColor" systemColor="systemGray6Color"/>
                                                 <prototypes>
@@ -232,7 +232,7 @@
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="요일" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="15P-Br-OmW">
-                                                                    <rect key="frame" x="28" y="12" width="28" height="19.5"/>
+                                                                    <rect key="frame" x="28" y="12.5" width="28" height="19"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
@@ -274,6 +274,7 @@
                                                             <color key="backgroundColor" systemColor="systemGray6Color"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="trailingMargin" secondItem="nX3-U3-BOd" secondAttribute="trailing" constant="8" id="1OS-dH-6JB"/>
+                                                                <constraint firstItem="7jT-nK-kfv" firstAttribute="firstBaseline" secondItem="15P-Br-OmW" secondAttribute="baseline" id="LBZ-R0-Wjx"/>
                                                                 <constraint firstItem="nX3-U3-BOd" firstAttribute="leading" secondItem="7jT-nK-kfv" secondAttribute="trailing" constant="128" id="MKk-Ek-sqN"/>
                                                                 <constraint firstItem="nv3-e0-iRl" firstAttribute="top" secondItem="Xh0-ZF-GTO" secondAttribute="top" id="Olu-8r-8gQ"/>
                                                                 <constraint firstItem="nv3-e0-iRl" firstAttribute="leading" secondItem="Xh0-ZF-GTO" secondAttribute="leading" id="UE4-52-EZW"/>
