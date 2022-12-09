@@ -93,8 +93,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITableViewDa
         //위치 업데이트
         locationManager.startUpdatingLocation()
         //위도 경도 가져오기
-        let coor = locationManager.location!.coordinate
-        let currentLocation = CLLocation(latitude: coor.latitude, longitude: coor.longitude)
+//        let coor = locationManager.location!.coordinate
+//        let currentLocation = CLLocation(latitude: coor.latitude, longitude: coor.longitude)
         let weatherService = WeatherService.shared
         
         DispatchQueue.main.async {
