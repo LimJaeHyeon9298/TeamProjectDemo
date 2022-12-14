@@ -186,8 +186,8 @@
                                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="moon" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="mgv-tG-XqH">
-                                                        <rect key="frame" x="278" y="58" width="72" height="71"/>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cloud" translatesAutoresizingMaskIntoConstraints="NO" id="mgv-tG-XqH">
+                                                        <rect key="frame" x="278" y="57.5" width="72" height="72"/>
                                                         <color key="tintColor" systemColor="systemYellowColor"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="72" id="GYx-4Y-dq9"/>
@@ -910,9 +910,9 @@
         <image name="arrow2" width="22" height="24"/>
         <image name="calender-check" width="24" height="24"/>
         <image name="calender-today" width="16" height="16"/>
+        <image name="cloud" width="48" height="48"/>
         <image name="earthTemp" width="256" height="36"/>
         <image name="ellipsis" catalog="system" width="128" height="37"/>
-        <image name="moon" catalog="system" width="128" height="123"/>
         <image name="showers" width="48" height="48"/>
         <image name="sunny" width="48" height="48"/>
         <systemColor name="opaqueSeparatorColor">
