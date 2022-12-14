@@ -40,12 +40,15 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITableViewDa
     //    var main: Main?
     //    var name: String?
     
-
+    
     //서울의 좌표
     let seoul = CLLocation(latitude: 37.5666, longitude: 126.9784)
     //날씨 데이터 저장
     var weather: Weather?
-
+    //10일간 최고 최저 온도
+    var weekWeatherMaxTempArray: [String] = []
+    var weekWeatherMinTempArray: [String] = []
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,7 +64,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITableViewDa
         self.firstview.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.firstViewTapped)))
         self.calenderView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.calenderViewTapped)))
         self.weatherView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.weatherViewTapped)))
-        
     }
     
     
@@ -93,8 +95,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITableViewDa
         //위치 업데이트
         locationManager.startUpdatingLocation()
         //위도 경도 가져오기
-//        let coor = locationManager.location!.coordinate
-//        let currentLocation = CLLocation(latitude: coor.latitude, longitude: coor.longitude)
+        //        let coor = locationManager.location!.coordinate
+        //        let currentLocation = CLLocation(latitude: coor.latitude, longitude: coor.longitude)
         let weatherService = WeatherService.shared
         
         DispatchQueue.main.async {
@@ -102,6 +104,12 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITableViewDa
                 do {
                     self.weather = try await weatherService.weather(for: self.seoul)
                     self.setWeatherUI()
+                    
+                    for j in 0...9 {
+                        self.weekWeatherMaxTempArray.insert("\(Int(self.weather!.dailyForecast[j].highTemperature.value))º", at: j)
+                        self.weekWeatherMinTempArray.insert("\(Int(self.weather!.dailyForecast[j].lowTemperature.value))º", at: j)
+                    }
+                                        
                 } catch {
                     print("error")
                 }
@@ -159,10 +167,11 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITableViewDa
         print(weather!.currentWeather.symbolName)
     }
     
+    //테이블뷰 셀의 숫자
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 10
     }
-    
+    //테이블뷰 셀 설정
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = weekWeatherTableView.dequeueReusableCell(withIdentifier: "WeekWeatherTableViewCell", for: indexPath) as! WeekWeatherTableViewCell
         cell.selectionStyle = .none
@@ -170,13 +179,19 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITableViewDa
         let formatter = DateFormatter()
         formatter.dateFormat = "EEE"
         var weekDayArray: [String] = ["오늘"]
-        var weekWeatherMinTempArray: [String] = []
         
         for i in 1...9 {
             weekDayArray.insert(formatter.string(from: Date(timeIntervalSinceNow: 86400 * Double(i))), at: i)
         }
-                
+        
         cell.weekDay.text = weekDayArray[indexPath.row]
+        
+        DispatchQueue.main.async {
+            if self.weekWeatherMaxTempArray.count == 10 {
+                    cell.weekWeatherMaxTemp.text = self.weekWeatherMaxTempArray[indexPath.row]
+                    cell.weekWeatherMinTemp.text = self.weekWeatherMinTempArray[indexPath.row]
+            }
+        }
         
         return cell
     }
