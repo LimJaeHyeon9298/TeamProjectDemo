@@ -26,11 +26,18 @@ class CurrentWeatherViewController: UIViewController, UISearchBarDelegate, UICol
     @IBOutlet weak var weatherPageControl: UIPageControl!
     //컬렉션뷰
     @IBOutlet weak var weatherCollectionView: UICollectionView!
-        
+    
     //서울의 좌표
     let seoul = CLLocation(latitude: 37.5666, longitude: 126.9784)
     //    //날씨 데이터 저장
     var weather: Weather?
+    //시간당 온도
+    var hourWeatherTempArray: [String] = []
+    //10일간 최고 최저 온도
+    var weekWeatherMaxTempArray: [String] = []
+    var weekWeatherMinTempArray: [String] = []
+    var weekWeatherSymbolArray: [String] = []
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,9 +60,7 @@ class CurrentWeatherViewController: UIViewController, UISearchBarDelegate, UICol
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         //위치 업데이트
         locationManager.startUpdatingLocation()
-        //위도 경도 가져오기
-        let coor = locationManager.location!.coordinate
-        let currentLocation = CLLocation(latitude: coor.latitude, longitude: coor.longitude)
+        
         let weatherService = WeatherService.shared
         
         DispatchQueue.main.async {
@@ -63,11 +68,18 @@ class CurrentWeatherViewController: UIViewController, UISearchBarDelegate, UICol
                 do {
                     self.weather = try await weatherService.weather(for: self.seoul)
                     self.setWeatherUI()
+                    for j in 0...23 {
+                        self.hourWeatherTempArray.insert("\(Int(self.weather!.hourlyForecast[j].temperature.value))º", at: 0)
+                    }
                 } catch {
                     print("error")
                 }
             }
         }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
     }
     
     //view세팅
@@ -124,15 +136,18 @@ class CurrentWeatherViewController: UIViewController, UISearchBarDelegate, UICol
         
         let currentHour = Calendar.current
         var hourArray: [String] = ["지금"]
-        var simbalArray: [String] = []
         
         for i in 1...23 {
             hourArray.insert(String(currentHour.component(.hour, from: Date(timeIntervalSinceNow: 3600 * Double(i)))) + "시", at: i)
-//            simbalArray.insert(weather!.dailyForecast[i - 1].symbolName, at: i - 1)
+            //            simbalArray.insert(weather!.dailyForecast[i - 1].symbolName, at: i - 1)
         }
         
-        cell.weatherCollectionDate.text = "\(hourArray[indexPath.row])"
-//        cell.weatherCollectionImage.image = UIImage(named: "\(simbalArray[indexPath.row])")
+        cell.weatherCollectionDate.text = hourArray[indexPath.row]
+        
+        
+        if self.hourWeatherTempArray.count == 24 {
+            cell.weatherCollectionTemp.text = self.hourWeatherTempArray[indexPath.row]
+        }
         
         return cell
     }

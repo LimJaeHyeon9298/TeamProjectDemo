@@ -48,6 +48,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITableViewDa
     //10일간 최고 최저 온도
     var weekWeatherMaxTempArray: [String] = []
     var weekWeatherMinTempArray: [String] = []
+    var weekWeatherSymbolArray: [String] = []
     
     
     override func viewDidLoad() {
@@ -64,6 +65,36 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITableViewDa
         self.firstview.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.firstViewTapped)))
         self.calenderView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.calenderViewTapped)))
         self.weatherView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.weatherViewTapped)))
+        //테이블뷰 델리케이트 설정
+        weekWeatherTableView.delegate = self
+        weekWeatherTableView.dataSource = self
+        
+        //위치 매니저 생성 및 설정
+        let locationManager = CLLocationManager()
+        locationManager.delegate = self
+        locationManager.requestWhenInUseAuthorization()
+        //위치 정확도
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        //위치 업데이트
+        locationManager.startUpdatingLocation()
+        
+        let weatherService = WeatherService.shared
+        
+        DispatchQueue.main.async {
+            Task {
+                do {
+                    self.weather = try await weatherService.weather(for: self.seoul)
+                    self.setWeatherUI()
+                    for j in 0...9 {
+                        self.weekWeatherMaxTempArray.insert("\(Int(self.weather!.dailyForecast[j].highTemperature.value))º", at: j)
+                        self.weekWeatherMinTempArray.insert("\(Int(self.weather!.dailyForecast[j].lowTemperature.value))º", at: j)
+                        self.weekWeatherSymbolArray.insert(self.weather!.dailyForecast[j].symbolName, at: j)
+                    }
+                } catch {
+                    print("error")
+                }
+            }
+        }
     }
     
     
@@ -83,38 +114,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITableViewDa
         //            }
         //        }
         
-        weekWeatherTableView.delegate = self
-        weekWeatherTableView.dataSource = self
         
-        //위치 매니저 생성 및 설정
-        let locationManager = CLLocationManager()
-        locationManager.delegate = self
-        locationManager.requestWhenInUseAuthorization()
-        //위치 정확도
-        locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        //위치 업데이트
-        locationManager.startUpdatingLocation()
-        //위도 경도 가져오기
-        //        let coor = locationManager.location!.coordinate
-        //        let currentLocation = CLLocation(latitude: coor.latitude, longitude: coor.longitude)
-        let weatherService = WeatherService.shared
-        
-        DispatchQueue.main.async {
-            Task {
-                do {
-                    self.weather = try await weatherService.weather(for: self.seoul)
-                    self.setWeatherUI()
-                    
-                    for j in 0...9 {
-                        self.weekWeatherMaxTempArray.insert("\(Int(self.weather!.dailyForecast[j].highTemperature.value))º", at: j)
-                        self.weekWeatherMinTempArray.insert("\(Int(self.weather!.dailyForecast[j].lowTemperature.value))º", at: j)
-                    }
-                                        
-                } catch {
-                    print("error")
-                }
-            }
-        }
     }
     
     func setupUI() {
@@ -160,10 +160,14 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITableViewDa
         //        weatherTempLabel.text = "\(Int(main!.temp - 273.15))ºC"
         //        weatherMaxTempLabel.text = "최고:\(Int(main!.temp_max - 273.15))ºC"
         //        weatherMinTempLabel.text = "최저:\(Int(main!.temp_min - 273.15))ºC"
+        //현재온도
         weatherTempLabel.text = "\(Int(weather!.currentWeather.temperature.value))º"
+        //최고온도
         weatherMaxTempLabel.text = "최고:\(Int(weather!.dailyForecast[0].highTemperature.value))º"
+        //최저온도
         weatherMinTempLabel.text = "최저:\(Int(weather!.dailyForecast[0].lowTemperature.value))º"
-        weatherImage.image = UIImage(named: "\(weather!.currentWeather.symbolName)")
+        //심볼네임
+        weatherImage.image = UIImage(named: weather!.currentWeather.symbolName)
         print(weather!.currentWeather.symbolName)
     }
     
@@ -186,15 +190,15 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITableViewDa
         
         cell.weekDay.text = weekDayArray[indexPath.row]
         
-        DispatchQueue.main.async {
-            if self.weekWeatherMaxTempArray.count == 10 {
-                    cell.weekWeatherMaxTemp.text = self.weekWeatherMaxTempArray[indexPath.row]
-                    cell.weekWeatherMinTemp.text = self.weekWeatherMinTempArray[indexPath.row]
-            }
+        if self.weekWeatherMaxTempArray.count == 10, self.weekWeatherSymbolArray.count == 10 {
+            cell.weekWeatherMaxTemp.text = self.weekWeatherMaxTempArray[indexPath.row]
+            cell.weekWeatherMinTemp.text = self.weekWeatherMinTempArray[indexPath.row]
+            cell.weekWeatherImage.image = UIImage(named: self.weekWeatherSymbolArray[indexPath.row])
         }
-        
+                
         return cell
     }
+    
 }
 
 class WeekWeatherTableViewCell: UITableViewCell {

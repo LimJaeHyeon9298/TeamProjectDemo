@@ -4,7 +4,7 @@
 
 //import UIKit
 //
-//// 에러 정의
+// 에러 정의
 //enum NetworkError: Error {
 //    case badUrl
 //    case noData
