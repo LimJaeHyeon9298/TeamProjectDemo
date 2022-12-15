@@ -403,7 +403,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="798"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="rv1-58-OSi">
-                                                <rect key="frame" x="20" y="420" width="374" height="60"/>
+                                                <rect key="frame" x="20" y="419" width="374" height="60"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="toe-aW-lRC">
                                                         <rect key="frame" x="0.0" y="0.0" width="177" height="60"/>
@@ -459,7 +459,7 @@
                                                 </constraints>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="yHP-Xo-evm">
-                                                <rect key="frame" x="20" y="158.5" width="374" height="221.5"/>
+                                                <rect key="frame" x="20" y="157.5" width="374" height="221.5"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="상승온도" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gvg-mh-bg0">
                                                         <rect key="frame" x="0.0" y="0.0" width="374" height="21.5"/>
@@ -475,26 +475,41 @@
                                                     </imageView>
                                                 </subviews>
                                             </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="D4k-24-ozy">
-                                                <rect key="frame" x="28" y="72" width="358" height="46.5"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="D4k-24-ozy">
+                                                <rect key="frame" x="28" y="72" width="358" height="73.5"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="지구온도" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kqx-L1-fKE">
-                                                        <rect key="frame" x="0.0" y="0.0" width="358" height="21.5"/>
-                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
-                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="O4c-S1-acM">
-                                                        <rect key="frame" x="0.0" y="26.5" width="358" height="20"/>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="xfV-Ml-fOy">
+                                                        <rect key="frame" x="0.0" y="0.0" width="86.5" height="21.5"/>
                                                         <subviews>
-                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="QMr-kX-Hcf">
-                                                                <rect key="frame" x="0.0" y="0.0" width="270.5" height="20"/>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="지구온도" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kqx-L1-fKE">
+                                                                <rect key="frame" x="0.0" y="0.0" width="62.5" height="21.5"/>
+                                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tempFlour" translatesAutoresizingMaskIntoConstraints="NO" id="ChQ-xe-Wla">
+                                                                <rect key="frame" x="66.5" y="1" width="20" height="20"/>
                                                                 <constraints>
-                                                                    <constraint firstAttribute="height" constant="20" id="dTL-Dh-Xjy"/>
+                                                                    <constraint firstAttribute="height" constant="20" id="7Ko-35-Jd5"/>
+                                                                    <constraint firstAttribute="width" constant="20" id="ra7-Ip-f6b"/>
+                                                                </constraints>
+                                                            </imageView>
+                                                        </subviews>
+                                                    </stackView>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="O4c-S1-acM">
+                                                        <rect key="frame" x="0.0" y="25.5" width="330" height="48"/>
+                                                        <subviews>
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" verticalHuggingPriority="251" image="earthTemp" translatesAutoresizingMaskIntoConstraints="NO" id="QMr-kX-Hcf">
+                                                                <rect key="frame" x="0.0" y="0.0" width="256" height="48"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="48" id="uQS-JS-ytW"/>
                                                                 </constraints>
                                                             </imageView>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1.34º" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VPD-6w-TIR">
-                                                                <rect key="frame" x="280.5" y="0.0" width="77.5" height="20"/>
+                                                                <rect key="frame" x="266" y="0.0" width="64" height="48"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" constant="64" id="uS2-ct-Ejo"/>
+                                                                </constraints>
                                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="26"/>
                                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <nil key="highlightedColor"/>
@@ -504,18 +519,18 @@
                                                 </subviews>
                                             </stackView>
                                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="7LV-cA-GiR">
-                                                <rect key="frame" x="18" y="488" width="378" height="31"/>
+                                                <rect key="frame" x="18" y="487" width="378" height="31"/>
                                                 <color key="tintColor" systemColor="systemRedColor"/>
                                                 <connections>
                                                     <action selector="sliderChanged:" destination="EiK-Gc-WGF" eventType="valueChanged" id="ndy-Ec-jfO"/>
                                                 </connections>
                                             </slider>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.5" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="N5b-4X-ejP">
-                                                <rect key="frame" x="20" y="538" width="374" height="242"/>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.5" contentMode="scaleToFill" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N5b-4X-ejP">
+                                                <rect key="frame" x="20" y="537" width="374" height="243"/>
                                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <string key="text">2015년 제21차 당사국총회(COP21, 파리)에서는  2020년부터 모든 국가가 참여하는 신기후체제의 근간이 될  파리협정(Paris Agreement)이 채택되었다. 이로써 선진국에만  온실가스 감축 의무를 부과하던 기존의 교토의정서 체제를 넘어  모든 국가가 자국의 상황을 반영하여 참여하는 보편적인 체제가  마련되었다. 파리협정은 지구 평균기온 상승을 산업화 이전 대비 2℃ 보다  상당히 낮은 수준으로 유지하고, 1.5℃로 제한하기 위해  노력한다는 전 지구적 장기목표 하에 모든 국가가 2020년부터  기후행동에 참여하며, 5년 주기 이행점검을 통해 점차 노력을  강화하도록 규정하고 있다. 파리 협정은 또한, 모든 국가가 스스로 결정한 온실가스 감축목표를 5년 단위로 제출하고 국내적으로  이행토록 하고 있으며, 재원 조성 관련, 선진국이 선도적 역할을  수행하고 여타국가는 자발적으로 참여하도록 하고 있다. 협정은  기후행동 및 지원에 대한 투명성 체제를 강화하면서도 각국의  능력을 감안하여 유연성을 인정하고 있으며, 2023년부터 5년  단위로 파리 협정의 이행 및 장기목표 달성 가능성을 평가하는  전 지구적 이행점검을 실시한다는 규정을 포함하고 있다. 2015년 12월 파리에서 채택되고, 2016년 4월 22일 미국 뉴욕에서 서명된 파리협정은 10월 5일 발효요건이 충족되어 30일 후인  11월 4일 공식 발효되었다. 파리협정 발효 이후 처음으로 개최된 제22차 유엔기후변화협약  당사국총회(COP22)(2016.11.7.-18)에서는 2018년까지  파리협정 이행에 필요한 세부지침을마련하자는 데 합의하였다.  이와 관련, 2018년 제24차 당사국총회(COP24, 카토비체)에서는 파리협정 제6조(국제탄소시장) 지침을 제외한 감축, 적응, 투명성, 재원, 기술이전 등 8개 분야 16개 지침을 채택하였다.  그리고 마침내 2021년  제26차 당사국총회(COP26, 글래스고)에서 6년간 치열한 협상을 진행해 온 국제탄소시장 지침을 타결함으로써 파리협정의  세부이행규칙(Paris Rulebook)을 완성하였다.</string>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="4du-4A-u9B">
@@ -547,13 +562,12 @@
                                                 </connections>
                                             </button>
                                         </subviews>
-                                        <color key="backgroundColor" systemColor="systemGray4Color"/>
+                                        <color key="backgroundColor" systemColor="systemGray6Color"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="798" id="330-d2-VHn"/>
                                             <constraint firstItem="rv1-58-OSi" firstAttribute="top" secondItem="yHP-Xo-evm" secondAttribute="bottom" constant="40" id="4dc-iA-uKn"/>
                                             <constraint firstItem="D4k-24-ozy" firstAttribute="top" secondItem="iio-tK-h1C" secondAttribute="top" constant="72" id="5CP-e7-Tvf"/>
                                             <constraint firstItem="N5b-4X-ejP" firstAttribute="leading" secondItem="iio-tK-h1C" secondAttribute="leading" constant="20" id="8dV-VT-0VM"/>
-                                            <constraint firstItem="yHP-Xo-evm" firstAttribute="top" secondItem="D4k-24-ozy" secondAttribute="bottom" constant="40" id="95e-Ar-4dp"/>
                                             <constraint firstItem="4du-4A-u9B" firstAttribute="leading" secondItem="iio-tK-h1C" secondAttribute="leading" constant="8" id="A9X-bd-leX"/>
                                             <constraint firstAttribute="trailing" secondItem="7LV-cA-GiR" secondAttribute="trailing" constant="20" id="Dtz-Ok-0Mc"/>
                                             <constraint firstItem="D4k-24-ozy" firstAttribute="leading" secondItem="iio-tK-h1C" secondAttribute="leading" constant="28" id="FkO-qU-KwY"/>
@@ -566,6 +580,7 @@
                                             <constraint firstItem="yHP-Xo-evm" firstAttribute="leading" secondItem="iio-tK-h1C" secondAttribute="leading" constant="20" id="bPv-sZ-T5y"/>
                                             <constraint firstAttribute="trailing" secondItem="rv1-58-OSi" secondAttribute="trailing" constant="20" id="fBW-I1-Lrf"/>
                                             <constraint firstItem="4du-4A-u9B" firstAttribute="top" secondItem="iio-tK-h1C" secondAttribute="top" constant="12" id="fza-nt-Syg"/>
+                                            <constraint firstItem="yHP-Xo-evm" firstAttribute="top" secondItem="D4k-24-ozy" secondAttribute="bottom" constant="12" id="m3o-9R-jfR"/>
                                             <constraint firstAttribute="trailing" secondItem="D4k-24-ozy" secondAttribute="trailing" constant="28" id="n2A-LY-ekd"/>
                                             <constraint firstAttribute="trailing" secondItem="N5b-4X-ejP" secondAttribute="trailing" constant="20" id="r1M-fS-hfg"/>
                                             <constraint firstItem="7LV-cA-GiR" firstAttribute="leading" secondItem="iio-tK-h1C" secondAttribute="leading" constant="20" id="rMf-Oj-QMB"/>
@@ -585,7 +600,7 @@
                             </scrollView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="PGQ-iO-6qX"/>
-                        <color key="backgroundColor" systemColor="systemGray4Color"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="PGQ-iO-6qX" firstAttribute="bottom" secondItem="87j-O7-XIy" secondAttribute="bottom" id="CmE-YB-B74"/>
                             <constraint firstItem="87j-O7-XIy" firstAttribute="top" secondItem="PGQ-iO-6qX" secondAttribute="top" id="FvI-iH-KQA"/>
@@ -596,6 +611,7 @@
                     <navigationItem key="navigationItem" id="Vdf-JA-UVV"/>
                     <size key="freeformSize" width="414" height="942"/>
                     <connections>
+                        <outlet property="mainView" destination="iio-tK-h1C" id="ZTJ-JS-dao"/>
                         <outlet property="slider" destination="7LV-cA-GiR" id="Uhh-8f-lem"/>
                         <outlet property="tempLabel" destination="1pu-Y2-Jby" id="xm8-tT-2jq"/>
                         <outlet property="tempView" destination="vjs-vs-78k" id="yky-6d-peL"/>
@@ -606,7 +622,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GgP-rC-WZ0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="913" y="-558"/>
+            <point key="canvasLocation" x="911.59420289855075" y="-558.48214285714278"/>
         </scene>
         <!--Current Weather View Controller-->
         <scene sceneID="CZ9-m5-psP">
@@ -917,6 +933,7 @@
         <image name="ellipsis" catalog="system" width="128" height="37"/>
         <image name="showers" width="48" height="48"/>
         <image name="sunny" width="48" height="48"/>
+        <image name="tempFlour" width="16" height="16"/>
         <systemColor name="opaqueSeparatorColor">
             <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

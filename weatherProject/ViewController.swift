@@ -125,7 +125,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITableViewDa
         otherOptionView.layer.cornerRadius = 15
         weatherView.layer.cornerRadius = 15
         
-        //        firstview.backgroundColor = UIColor(patternImage: UIImage(named: "firstViewBack")!)
+        firstview.backgroundColor = UIColor(patternImage: UIImage(named: "earthBackGround")!)
     }
     
     //오늘 날씨뷰 ui
@@ -195,7 +195,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITableViewDa
             cell.weekWeatherMinTemp.text = self.weekWeatherMinTempArray[indexPath.row]
             cell.weekWeatherImage.image = UIImage(named: self.weekWeatherSymbolArray[indexPath.row])
         }
-                
+        
         return cell
     }
     
