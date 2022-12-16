@@ -45,11 +45,18 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITableViewDa
     let seoul = CLLocation(latitude: 37.5666, longitude: 126.9784)
     //날씨 데이터 저장
     var weather: Weather?
+    //시간당 온도
+    var hourWeatherTempArray: [String] = []
+    var hourWeatherSymbol: [String] = []
     //10일간 최고 최저 온도
     var weekWeatherMaxTempArray: [String] = []
     var weekWeatherMinTempArray: [String] = []
     var weekWeatherSymbolArray: [String] = []
-    
+    //오늘 온도, 최고 최저 온도, 심볼네임
+    var currentWeatherTemp = ""
+    var currentWeatherSymbol = ""
+    var dailyWeatherMaxTemp = ""
+    var dailyWeatherMinTemp = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -84,12 +91,20 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITableViewDa
             Task {
                 do {
                     self.weather = try await weatherService.weather(for: self.seoul)
-                    self.setWeatherUI()
-                    for j in 0...9 {
-                        self.weekWeatherMaxTempArray.insert("\(Int(self.weather!.dailyForecast[j].highTemperature.value))º", at: j)
-                        self.weekWeatherMinTempArray.insert("\(Int(self.weather!.dailyForecast[j].lowTemperature.value))º", at: j)
-                        self.weekWeatherSymbolArray.insert(self.weather!.dailyForecast[j].symbolName, at: j)
+                    for i in 0...9 {
+                        self.weekWeatherMaxTempArray.insert("\(Int(self.weather!.dailyForecast[i].highTemperature.value))º", at: i)
+                        self.weekWeatherMinTempArray.insert("\(Int(self.weather!.dailyForecast[i].lowTemperature.value))º", at: i)
+                        self.weekWeatherSymbolArray.insert(self.weather!.dailyForecast[i].symbolName, at: i)
                     }
+                    for j in 0...23 {
+                        self.hourWeatherTempArray.insert("\(Int(self.weather!.hourlyForecast[j].temperature.value))º", at: j)
+                        self.hourWeatherSymbol.insert(self.weather!.hourlyForecast[j].symbolName, at: j)
+                    }
+                    self.dailyWeatherMaxTemp = "최고:\(Int(self.weather!.dailyForecast[0].highTemperature.value))º"
+                    self.dailyWeatherMinTemp = "최저:\(Int(self.weather!.dailyForecast[0].lowTemperature.value))º"
+                    self.currentWeatherSymbol = self.weather!.currentWeather.symbolName
+                    self.currentWeatherTemp = "\(Int(self.weather!.currentWeather.temperature.value))º"
+                    self.setWeatherUI()
                 } catch {
                     print("error")
                 }
@@ -150,6 +165,20 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITableViewDa
     @objc func weatherViewTapped(_ sender: UITapGestureRecognizer) {
         performSegue(withIdentifier: "showCurrentWeatherView", sender: sender)
     }
+    //currnetViewController로 데이터 전송
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showCurrentWeatherView" {
+            guard let vc = segue.destination as? CurrentWeatherViewController else { return }
+            vc.hourWeatherTempArray = self.hourWeatherTempArray
+            vc.weekWeatherSymbolArray = self.weekWeatherSymbolArray
+            vc.weekWeatherMaxTempArray = self.weekWeatherMaxTempArray
+            vc.weekWeatherMinTempArray = self.weekWeatherMinTempArray
+            vc.currentWeatherTemp = self.currentWeatherTemp
+            vc.currentWeatherSymbol = self.currentWeatherSymbol
+            vc.dailyWeatherMaxTemp = self.dailyWeatherMaxTemp
+            vc.dailyWeatherMinTemp = self.dailyWeatherMinTemp
+        }
+    }
     
     //페이지컨트롤
     @IBAction func pageChanged(_ sender: UIPageControl) {
@@ -161,13 +190,13 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITableViewDa
         //        weatherMaxTempLabel.text = "최고:\(Int(main!.temp_max - 273.15))ºC"
         //        weatherMinTempLabel.text = "최저:\(Int(main!.temp_min - 273.15))ºC"
         //현재온도
-        weatherTempLabel.text = "\(Int(weather!.currentWeather.temperature.value))º"
+        weatherTempLabel.text = self.currentWeatherTemp
         //최고온도
-        weatherMaxTempLabel.text = "최고:\(Int(weather!.dailyForecast[0].highTemperature.value))º"
+        weatherMaxTempLabel.text = self.dailyWeatherMaxTemp
         //최저온도
-        weatherMinTempLabel.text = "최저:\(Int(weather!.dailyForecast[0].lowTemperature.value))º"
+        weatherMinTempLabel.text = self.dailyWeatherMinTemp
         //심볼네임
-        weatherImage.image = UIImage(named: weather!.currentWeather.symbolName)
+        weatherImage.image = UIImage(named: self.currentWeatherSymbol)
         print(weather!.currentWeather.symbolName)
     }
     

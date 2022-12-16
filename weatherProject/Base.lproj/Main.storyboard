@@ -627,7 +627,7 @@
         <!--Current Weather View Controller-->
         <scene sceneID="CZ9-m5-psP">
             <objects>
-                <viewController id="c9E-wp-q8H" customClass="CurrentWeatherViewController" customModule="weatherProject" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="currentWeatherViewController" id="c9E-wp-q8H" customClass="CurrentWeatherViewController" customModule="weatherProject" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="eVQ-Zd-qVk">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

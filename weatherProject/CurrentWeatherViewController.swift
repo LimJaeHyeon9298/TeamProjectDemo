@@ -3,8 +3,7 @@
 
 
 import UIKit
-import WeatherKit
-import CoreLocation
+
 
 class CurrentWeatherViewController: UIViewController, UISearchBarDelegate, UICollectionViewDelegate, UICollectionViewDataSource {
     
@@ -27,16 +26,18 @@ class CurrentWeatherViewController: UIViewController, UISearchBarDelegate, UICol
     //컬렉션뷰
     @IBOutlet weak var weatherCollectionView: UICollectionView!
     
-    //서울의 좌표
-    let seoul = CLLocation(latitude: 37.5666, longitude: 126.9784)
-    //    //날씨 데이터 저장
-    var weather: Weather?
     //시간당 온도
     var hourWeatherTempArray: [String] = []
+    var hourWeatherSymbol: [String] = []
     //10일간 최고 최저 온도
     var weekWeatherMaxTempArray: [String] = []
     var weekWeatherMinTempArray: [String] = []
     var weekWeatherSymbolArray: [String] = []
+    //오늘 온도, 최고 최저 온도, 심볼네임
+    var currentWeatherTemp = ""
+    var currentWeatherSymbol = ""
+    var dailyWeatherMaxTemp = ""
+    var dailyWeatherMinTemp = ""
     
     
     override func viewDidLoad() {
@@ -53,29 +54,8 @@ class CurrentWeatherViewController: UIViewController, UISearchBarDelegate, UICol
         //기본뷰 액션 추가
         self.backgroundView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.backgroundViewTapped)))
         
-        //위치 매니저 생성 및 설정
-        let locationManager = CLLocationManager()
-        locationManager.requestWhenInUseAuthorization()
-        //위치 정확도
-        locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        //위치 업데이트
-        locationManager.startUpdatingLocation()
-        
-        let weatherService = WeatherService.shared
-        
-        DispatchQueue.main.async {
-            Task {
-                do {
-                    self.weather = try await weatherService.weather(for: self.seoul)
-                    self.setWeatherUI()
-                    for j in 0...23 {
-                        self.hourWeatherTempArray.insert("\(Int(self.weather!.hourlyForecast[j].temperature.value))º", at: 0)
-                    }
-                } catch {
-                    print("error")
-                }
-            }
-        }
+        //날씨세팅
+        setWeatherUI()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -97,14 +77,11 @@ class CurrentWeatherViewController: UIViewController, UISearchBarDelegate, UICol
     
     //현재 온도 세팅
     private func setWeatherUI() {
-        //        weatherTempLabel.text = "\(Int(main!.temp - 273.15))ºC"
-        //        weatherMaxTempLabel.text = "최고:\(Int(main!.temp_max - 273.15))ºC"
-        //        weatherMinTempLabel.text = "최저:\(Int(main!.temp_min - 273.15))ºC"
-        weatherTempLabel.text = "\(Int(weather!.currentWeather.temperature.value))º"
-        weatherMaxTempLabel.text = "최고:\(Int(weather!.dailyForecast[0].highTemperature.value))º"
-        weatherMinTempLabel.text = "최저:\(Int(weather!.dailyForecast[0].lowTemperature.value))º"
-        weatherImage.image = UIImage(named: "\(weather!.currentWeather.symbolName)")
-        print(weather!.currentWeather.symbolName)
+        weatherTempLabel.text = self.currentWeatherTemp
+        weatherMaxTempLabel.text = self.dailyWeatherMaxTemp
+        weatherMinTempLabel.text = self.dailyWeatherMinTemp
+        weatherImage.image = UIImage(named: self.currentWeatherSymbol)
+        print(self.currentWeatherTemp)
     }
     
     //back버튼을 눌렀을때
@@ -147,6 +124,7 @@ class CurrentWeatherViewController: UIViewController, UISearchBarDelegate, UICol
         
         if self.hourWeatherTempArray.count == 24 {
             cell.weatherCollectionTemp.text = self.hourWeatherTempArray[indexPath.row]
+            cell.weatherCollectionImage.image = UIImage(named: self.hourWeatherSymbol[indexPath.row])
         }
         
         return cell
