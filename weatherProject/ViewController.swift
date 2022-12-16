@@ -195,7 +195,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITableViewDa
             cell.weekWeatherMinTemp.text = self.weekWeatherMinTempArray[indexPath.row]
             cell.weekWeatherImage.image = UIImage(named: self.weekWeatherSymbolArray[indexPath.row])
         }
-        
         return cell
     }
     
