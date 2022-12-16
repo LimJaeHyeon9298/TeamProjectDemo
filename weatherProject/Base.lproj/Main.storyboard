@@ -657,16 +657,6 @@
                                                     </button>
                                                 </subviews>
                                             </stackView>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2aI-D8-L78">
-                                                <rect key="frame" x="362" y="12" width="32" height="34"/>
-                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
-                                                <color key="tintColor" systemColor="tintColor"/>
-                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                <state key="normal" title="공유"/>
-                                                <connections>
-                                                    <action selector="shareButtonTapped:" destination="EiK-Gc-WGF" eventType="touchUpInside" id="Oqx-xl-iuT"/>
-                                                </connections>
-                                            </button>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rGy-gl-vjN">
                                                 <rect key="frame" x="20" y="110" width="374" height="187"/>
                                                 <subviews>
@@ -816,9 +806,7 @@
                                         <color key="backgroundColor" systemColor="systemGray6Color"/>
                                         <constraints>
                                             <constraint firstItem="zHq-5J-X9S" firstAttribute="top" secondItem="rGy-gl-vjN" secondAttribute="bottom" constant="8" id="1Mk-QE-kWu"/>
-                                            <constraint firstItem="2aI-D8-L78" firstAttribute="top" secondItem="z8i-Dl-22R" secondAttribute="top" constant="12" id="3ev-mE-naK"/>
                                             <constraint firstItem="rGy-gl-vjN" firstAttribute="width" secondItem="rGy-gl-vjN" secondAttribute="height" multiplier="2:1" id="9uI-sE-hww"/>
-                                            <constraint firstAttribute="trailing" secondItem="2aI-D8-L78" secondAttribute="trailing" constant="20" id="Ixz-WN-eLg"/>
                                             <constraint firstItem="e78-oB-4MI" firstAttribute="leading" secondItem="z8i-Dl-22R" secondAttribute="leading" constant="12" id="J6x-fO-WeN"/>
                                             <constraint firstItem="rGy-gl-vjN" firstAttribute="leading" secondItem="z8i-Dl-22R" secondAttribute="leading" constant="20" id="Oe5-DS-VTN"/>
                                             <constraint firstAttribute="height" priority="250" constant="814" id="P0M-0S-AYy"/>
