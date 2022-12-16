@@ -92,16 +92,21 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITableViewDa
                 do {
                     self.weather = try await weatherService.weather(for: self.seoul)
                     for i in 0...9 {
-                        self.weekWeatherMaxTempArray.insert("\(Int(self.weather!.dailyForecast[i].highTemperature.value))º", at: i)
-                        self.weekWeatherMinTempArray.insert("\(Int(self.weather!.dailyForecast[i].lowTemperature.value))º", at: i)
-                        self.weekWeatherSymbolArray.insert(self.weather!.dailyForecast[i].symbolName, at: i)
+                        self.weekWeatherMaxTempArray.append("\(Int(self.weather!.dailyForecast[i].highTemperature.value))º")
+                        self.weekWeatherMinTempArray.append("\(Int(self.weather!.dailyForecast[i].lowTemperature.value))º")
+                        self.weekWeatherSymbolArray.append(self.weather!.dailyForecast[i].symbolName)
                     }
                     print(self.weekWeatherSymbolArray)
-                    for j in 0...23 {
-                        self.hourWeatherTempArray.insert("\(Int(self.weather!.hourlyForecast[j].temperature.value))º", at: j)
-                        self.hourWeatherSymbol.insert(self.weather!.hourlyForecast[j].symbolName, at: j)
+                    
+                    let formatter = DateFormatter()
+                    formatter.dateFormat = "HH"
+                    var currentHour = Int(formatter.string(from: Date()))!
+                    print(currentHour)
+                    
+                    for j in (currentHour + 1)...(currentHour + 24) {
+                        self.hourWeatherTempArray.append("\(Int(self.weather!.hourlyForecast[j].temperature.value))º")
+                        self.hourWeatherSymbol.append(self.weather!.hourlyForecast[j].symbolName)
                     }
-                    print(self.weather!.hourlyForecast.startIndex)
                     
                     self.dailyWeatherMaxTemp = "최고:\(Int(self.weather!.dailyForecast[0].highTemperature.value))º"
                     self.dailyWeatherMinTemp = "최저:\(Int(self.weather!.dailyForecast[0].lowTemperature.value))º"
