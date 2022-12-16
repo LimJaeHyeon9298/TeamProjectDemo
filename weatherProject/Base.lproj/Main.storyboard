@@ -38,7 +38,7 @@
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" verticalHuggingPriority="251" image="earthTemp" translatesAutoresizingMaskIntoConstraints="NO" id="ibw-zm-OGb">
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" image="earthTemp" translatesAutoresizingMaskIntoConstraints="NO" id="ibw-zm-OGb">
                                                         <rect key="frame" x="16" y="28" width="280" height="49.5"/>
                                                     </imageView>
                                                 </subviews>
@@ -929,7 +929,7 @@
         <image name="calender-check" width="24" height="24"/>
         <image name="calender-today" width="16" height="16"/>
         <image name="cloud" width="1494" height="998"/>
-        <image name="earthTemp" width="256" height="36"/>
+        <image name="earthTemp" width="256" height="40.5"/>
         <image name="ellipsis" catalog="system" width="128" height="37"/>
         <image name="showers" width="48" height="48"/>
         <image name="sunny" width="48" height="48"/>
