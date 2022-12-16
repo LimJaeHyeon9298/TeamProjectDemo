@@ -768,10 +768,10 @@
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <subviews>
                                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0gU-99-G6y">
-                                                                    <rect key="frame" x="18" y="45" width="32" height="32"/>
+                                                                    <rect key="frame" x="22" y="49" width="24" height="24"/>
                                                                     <constraints>
-                                                                        <constraint firstAttribute="width" constant="32" id="0RD-6f-0v3"/>
-                                                                        <constraint firstAttribute="height" constant="32" id="PPy-4l-FPE"/>
+                                                                        <constraint firstAttribute="width" constant="24" id="0RD-6f-0v3"/>
+                                                                        <constraint firstAttribute="height" constant="24" id="PPy-4l-FPE"/>
                                                                     </constraints>
                                                                 </imageView>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="지금" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DHA-hb-DDh">

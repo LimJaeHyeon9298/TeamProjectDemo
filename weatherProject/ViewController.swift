@@ -96,15 +96,19 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITableViewDa
                         self.weekWeatherMinTempArray.insert("\(Int(self.weather!.dailyForecast[i].lowTemperature.value))º", at: i)
                         self.weekWeatherSymbolArray.insert(self.weather!.dailyForecast[i].symbolName, at: i)
                     }
+                    print(self.weekWeatherSymbolArray)
                     for j in 0...23 {
                         self.hourWeatherTempArray.insert("\(Int(self.weather!.hourlyForecast[j].temperature.value))º", at: j)
                         self.hourWeatherSymbol.insert(self.weather!.hourlyForecast[j].symbolName, at: j)
                     }
+                    print(self.weather!.hourlyForecast.startIndex)
+                    
                     self.dailyWeatherMaxTemp = "최고:\(Int(self.weather!.dailyForecast[0].highTemperature.value))º"
                     self.dailyWeatherMinTemp = "최저:\(Int(self.weather!.dailyForecast[0].lowTemperature.value))º"
                     self.currentWeatherSymbol = self.weather!.currentWeather.symbolName
                     self.currentWeatherTemp = "\(Int(self.weather!.currentWeather.temperature.value))º"
                     self.setWeatherUI()
+                    self.weekWeatherTableView.reloadData()
                 } catch {
                     print("error")
                 }
@@ -177,6 +181,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITableViewDa
             vc.currentWeatherSymbol = self.currentWeatherSymbol
             vc.dailyWeatherMaxTemp = self.dailyWeatherMaxTemp
             vc.dailyWeatherMinTemp = self.dailyWeatherMinTemp
+            vc.hourWeatherSymbol = self.hourWeatherSymbol
         }
     }
     

@@ -122,7 +122,7 @@ class CurrentWeatherViewController: UIViewController, UISearchBarDelegate, UICol
         cell.weatherCollectionDate.text = hourArray[indexPath.row]
         
         
-        if self.hourWeatherTempArray.count == 24 {
+        if self.hourWeatherTempArray.count == 24, self.hourWeatherSymbol.count == 24 {
             cell.weatherCollectionTemp.text = self.hourWeatherTempArray[indexPath.row]
             cell.weatherCollectionImage.image = UIImage(named: self.hourWeatherSymbol[indexPath.row])
         }
