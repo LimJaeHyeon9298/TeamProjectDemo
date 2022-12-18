@@ -49,8 +49,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITableViewDa
     var hourWeatherTempArray: [String] = []
     var hourWeatherSymbol: [String] = []
     //10일간 최고 최저 온도
-    var weekWeatherMaxTempArray: [String] = []
-    var weekWeatherMinTempArray: [String] = []
+    var weekWeatherMaxTempArray: [Int] = []
+    var weekWeatherMinTempArray: [Int] = []
     var weekWeatherSymbolArray: [String] = []
     //오늘 온도, 최고 최저 온도, 심볼네임
     var currentWeatherTemp = ""
@@ -92,21 +92,22 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITableViewDa
                 do {
                     self.weather = try await weatherService.weather(for: self.seoul)
                     for i in 0...9 {
-                        self.weekWeatherMaxTempArray.append("\(Int(self.weather!.dailyForecast[i].highTemperature.value))º")
-                        self.weekWeatherMinTempArray.append("\(Int(self.weather!.dailyForecast[i].lowTemperature.value))º")
+                        self.weekWeatherMaxTempArray.append((Int(self.weather!.dailyForecast[i].highTemperature.value)))
+                        self.weekWeatherMinTempArray.append((Int(self.weather!.dailyForecast[i].lowTemperature.value)))
                         self.weekWeatherSymbolArray.append(self.weather!.dailyForecast[i].symbolName)
                     }
                     print(self.weekWeatherSymbolArray)
                     
                     let formatter = DateFormatter()
                     formatter.dateFormat = "HH"
-                    var currentHour = Int(formatter.string(from: Date()))!
+                    let currentHour = Int(formatter.string(from: Date()))!
                     print(currentHour)
                     
-                    for j in (currentHour + 1)...(currentHour + 24) {
+                    for j in (currentHour + 2)...(currentHour + 25) {
                         self.hourWeatherTempArray.append("\(Int(self.weather!.hourlyForecast[j].temperature.value))º")
                         self.hourWeatherSymbol.append(self.weather!.hourlyForecast[j].symbolName)
                     }
+
                     
                     self.dailyWeatherMaxTemp = "최고:\(Int(self.weather!.dailyForecast[0].highTemperature.value))º"
                     self.dailyWeatherMinTemp = "최저:\(Int(self.weather!.dailyForecast[0].lowTemperature.value))º"
@@ -218,33 +219,37 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITableViewDa
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = weekWeatherTableView.dequeueReusableCell(withIdentifier: "WeekWeatherTableViewCell", for: indexPath) as! WeekWeatherTableViewCell
         cell.selectionStyle = .none
-        
+        //DateFormatter 생성
         let formatter = DateFormatter()
+        //요일만 나오도록 설정
         formatter.dateFormat = "EEE"
+        //오늘은 오늘이라고 설정하고 나머지는 요일로 나타내는 배열
         var weekDayArray: [String] = ["오늘"]
-        
         for i in 1...9 {
             weekDayArray.insert(formatter.string(from: Date(timeIntervalSinceNow: 86400 * Double(i))), at: i)
         }
-        
+        //셀에 요일 넣기
         cell.weekDay.text = weekDayArray[indexPath.row]
-        
+        //최고, 최저 온도 및 
         if self.weekWeatherMaxTempArray.count == 10, self.weekWeatherSymbolArray.count == 10 {
-            cell.weekWeatherMaxTemp.text = self.weekWeatherMaxTempArray[indexPath.row]
-            cell.weekWeatherMinTemp.text = self.weekWeatherMinTempArray[indexPath.row]
+            cell.weekWeatherMaxTemp.text = "\(self.weekWeatherMaxTempArray[indexPath.row])º"
+            cell.weekWeatherMinTemp.text = "\(self.weekWeatherMinTempArray[indexPath.row])º"
             cell.weekWeatherImage.image = UIImage(named: self.weekWeatherSymbolArray[indexPath.row])
+            cell.tempProgressView.progress = 0.5 + Float((self.weekWeatherMaxTempArray[indexPath.row] + self.weekWeatherMinTempArray[indexPath.row])) / 100.0
         }
+            
         return cell
     }
     
 }
 
 class WeekWeatherTableViewCell: UITableViewCell {
-    
+    //주간 날씨 테이블뷰 ui
     @IBOutlet weak var weekDay: UILabel!
     @IBOutlet weak var weekWeatherMinTemp: UILabel!
     @IBOutlet weak var weekWeatherMaxTemp: UILabel!
     @IBOutlet weak var weekWeatherImage: UIImageView!
+    @IBOutlet weak var tempProgressView: UIProgressView!
 }
 
 

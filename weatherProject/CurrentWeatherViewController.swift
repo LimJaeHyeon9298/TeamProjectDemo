@@ -30,8 +30,8 @@ class CurrentWeatherViewController: UIViewController, UISearchBarDelegate, UICol
     var hourWeatherTempArray: [String] = []
     var hourWeatherSymbol: [String] = []
     //10일간 최고 최저 온도
-    var weekWeatherMaxTempArray: [String] = []
-    var weekWeatherMinTempArray: [String] = []
+    var weekWeatherMaxTempArray: [Int] = []
+    var weekWeatherMinTempArray: [Int] = []
     var weekWeatherSymbolArray: [String] = []
     //오늘 온도, 최고 최저 온도, 심볼네임
     var currentWeatherTemp = ""
