@@ -57,6 +57,20 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITableViewDa
     var currentWeatherSymbol = ""
     var dailyWeatherMaxTemp = ""
     var dailyWeatherMinTemp = ""
+    //가시거리
+    var currentWeatherVisibility = ""
+    //자외선 지수
+    var currentWeatherUvIndex = ""
+    //풍속, 풍향
+    var currentWeatherWindSpeed = ""
+    var currentWeatherWinddirection = ""
+    //체감온도
+    var currentWeatherApparentTemperature = ""
+    //습도
+    var currentWeatherHumidity = ""
+    //강수량
+    var precipitation = ""
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -91,30 +105,42 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITableViewDa
             Task {
                 do {
                     self.weather = try await weatherService.weather(for: self.seoul)
+                    //10일간 날씨 받아오기
                     for i in 0...9 {
-                        self.weekWeatherMaxTempArray.append((Int(self.weather!.dailyForecast[i].highTemperature.value)))
-                        self.weekWeatherMinTempArray.append((Int(self.weather!.dailyForecast[i].lowTemperature.value)))
+                        self.weekWeatherMaxTempArray.append(Int(round(self.weather!.dailyForecast[i].highTemperature.value)))
+                        self.weekWeatherMinTempArray.append(Int(round(self.weather!.dailyForecast[i].lowTemperature.value)))
                         self.weekWeatherSymbolArray.append(self.weather!.dailyForecast[i].symbolName)
                     }
                     print(self.weekWeatherSymbolArray)
-                    
+                    //현재시간 불러오기
                     let formatter = DateFormatter()
                     formatter.dateFormat = "HH"
                     let currentHour = Int(formatter.string(from: Date()))!
                     print(currentHour)
-                    
+                    //시간당 날씨 받아오기
                     for j in (currentHour + 2)...(currentHour + 25) {
-                        self.hourWeatherTempArray.append("\(Int(self.weather!.hourlyForecast[j].temperature.value))º")
+                        self.hourWeatherTempArray.append("\(Int(round(self.weather!.hourlyForecast[j].temperature.value)))º")
                         self.hourWeatherSymbol.append(self.weather!.hourlyForecast[j].symbolName)
                     }
 
-                    
-                    self.dailyWeatherMaxTemp = "최고:\(Int(self.weather!.dailyForecast[0].highTemperature.value))º"
-                    self.dailyWeatherMinTemp = "최저:\(Int(self.weather!.dailyForecast[0].lowTemperature.value))º"
+                    //현재 날씨 받아오기
+                    self.dailyWeatherMaxTemp = "최고:\(Int(round(self.weather!.dailyForecast[0].highTemperature.value)))º"
+                    self.dailyWeatherMinTemp = "최저:\(Int(round(self.weather!.dailyForecast[0].lowTemperature.value)))º"
                     self.currentWeatherSymbol = self.weather!.currentWeather.symbolName
-                    self.currentWeatherTemp = "\(Int(self.weather!.currentWeather.temperature.value))º"
+                    self.currentWeatherTemp = "\(Int(round(self.weather!.currentWeather.temperature.value)))º"
+                    self.currentWeatherVisibility = "\(Int(round(self.weather!.currentWeather.visibility.value / 1000)))km"
+                    self.currentWeatherUvIndex = "\(self.weather!.currentWeather.uvIndex.value)"
+                    self.currentWeatherWindSpeed = "\(self.weather!.currentWeather.wind.speed.value)"
+                    self.currentWeatherWinddirection = "\(self.weather!.currentWeather.wind.direction.value)"
+                    self.currentWeatherApparentTemperature = "\(Int(round(self.weather!.currentWeather.apparentTemperature.value)))º"
+                    self.currentWeatherHumidity = "\(Int(round(self.weather!.currentWeather.humidity * 100)))%"
+                    self.precipitation = "\(Int(round(self.weather!.dailyForecast[0].precipitationChance * 100)))%"
+                    
+                    //ui세팅
                     self.setWeatherUI()
                     self.weekWeatherTableView.reloadData()
+                    
+                    print(self.weather!.currentWeather.condition.description)
                 } catch {
                     print("error")
                 }
@@ -188,6 +214,13 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITableViewDa
             vc.dailyWeatherMaxTemp = self.dailyWeatherMaxTemp
             vc.dailyWeatherMinTemp = self.dailyWeatherMinTemp
             vc.hourWeatherSymbol = self.hourWeatherSymbol
+            vc.currentWeatherVisibility = self.currentWeatherVisibility
+            vc.currentWeatherUvIndex = self.currentWeatherUvIndex
+            vc.currentWeatherWindSpeed = self.currentWeatherWindSpeed
+            vc.currentWeatherWinddirection = self.currentWeatherWinddirection
+            vc.currentWeatherApparentTemperature = self.currentWeatherApparentTemperature
+            vc.currentWeatherHumidity = self.currentWeatherHumidity
+            vc.precipitation = self.precipitation
         }
     }
     

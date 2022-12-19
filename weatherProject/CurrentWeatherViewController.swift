@@ -26,6 +26,30 @@ class CurrentWeatherViewController: UIViewController, UISearchBarDelegate, UICol
     @IBOutlet weak var weatherPageControl: UIPageControl!
     //컬렉션뷰
     @IBOutlet weak var weatherCollectionView: UICollectionView!
+    //자외선 지수
+    @IBOutlet weak var uvIndexView: UIView!
+    @IBOutlet weak var uvIndexLabel: UILabel!
+    @IBOutlet weak var uvIndexCateLabel: UILabel!
+    
+    //가시거리
+    @IBOutlet weak var visibilityView: UIView!
+    @IBOutlet weak var visibilityLabel: UILabel!
+    
+    //바람
+    @IBOutlet weak var windView: UIView!
+    
+    //체감온도
+    @IBOutlet weak var apparentTemperatureView: UIView!
+    @IBOutlet weak var apparentTemperatureLabel: UILabel!
+    
+    //습도
+    @IBOutlet weak var humidityView: UIView!
+    @IBOutlet weak var humidityLabel: UILabel!
+    
+    //강수확률
+    @IBOutlet weak var precipitationView: UIView!
+    @IBOutlet weak var precipitationChanceLabel: UILabel!
+    
     //테이블뷰
     @IBOutlet weak var weekWeatherTableView: UITableView!
     
@@ -41,6 +65,19 @@ class CurrentWeatherViewController: UIViewController, UISearchBarDelegate, UICol
     var currentWeatherSymbol = ""
     var dailyWeatherMaxTemp = ""
     var dailyWeatherMinTemp = ""
+    //가시거리
+    var currentWeatherVisibility = ""
+    //자외선 지수
+    var currentWeatherUvIndex = ""
+    //풍속, 풍향
+    var currentWeatherWindSpeed = ""
+    var currentWeatherWinddirection = ""
+    //체감온도
+    var currentWeatherApparentTemperature = ""
+    //습도
+    var currentWeatherHumidity = ""
+    //강수량
+    var precipitation = ""
     
     
     override func viewDidLoad() {
@@ -72,6 +109,12 @@ class CurrentWeatherViewController: UIViewController, UISearchBarDelegate, UICol
     func setupUI() {
         weatherView.layer.cornerRadius = 15
         searchBar.layer.cornerRadius = 15
+        uvIndexView.layer.cornerRadius = 15
+        visibilityView.layer.cornerRadius = 15
+        windView.layer.cornerRadius = 15
+        apparentTemperatureView.layer.cornerRadius = 15
+        humidityView.layer.cornerRadius = 15
+        precipitationView.layer.cornerRadius = 15
         
         //오늘 날짜 표시
         let formatter = DateFormatter()
@@ -83,11 +126,25 @@ class CurrentWeatherViewController: UIViewController, UISearchBarDelegate, UICol
     
     //현재 온도 세팅
     private func setWeatherUI() {
+        //현재 날씨 뷰 세팅
         weatherTempLabel.text = self.currentWeatherTemp
         weatherMaxTempLabel.text = self.dailyWeatherMaxTemp
         weatherMinTempLabel.text = self.dailyWeatherMinTemp
         weatherImage.image = UIImage(named: self.currentWeatherSymbol)
-        print(self.currentWeatherTemp)
+        
+        uvIndexLabel.text = currentWeatherUvIndex
+        visibilityLabel.text = currentWeatherVisibility
+        apparentTemperatureLabel.text = currentWeatherApparentTemperature
+        humidityLabel.text = currentWeatherHumidity
+        precipitationChanceLabel.text = precipitation
+        
+        print("가시거리: \(currentWeatherVisibility)")
+        print("자외선지수: \(currentWeatherUvIndex)")
+        print("바람세기: \(currentWeatherWindSpeed)")
+        print("바람방향: \(currentWeatherWinddirection)")
+        print("체감온도: \(currentWeatherApparentTemperature)")
+        print("습도: \(currentWeatherHumidity)")
+        print("강수확률: \(precipitation)")
     }
     
     //back버튼을 눌렀을때
