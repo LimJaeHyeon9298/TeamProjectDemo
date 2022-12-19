@@ -646,7 +646,7 @@
                                 <rect key="frame" x="0.0" y="48" width="414" height="1918"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="z8i-Dl-22R">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1714.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1722.5"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="AWg-ES-JRU">
                                                 <rect key="frame" x="8" y="12" width="58" height="34"/>
@@ -748,7 +748,7 @@
                                                 </connections>
                                             </searchBar>
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="jfy-M4-7BB">
-                                                <rect key="frame" x="20" y="352" width="374" height="124.5"/>
+                                                <rect key="frame" x="20" y="360" width="374" height="124.5"/>
                                                 <color key="backgroundColor" systemColor="systemGray6Color"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="jfy-M4-7BB" secondAttribute="height" multiplier="3:1" id="T4y-qy-973"/>
@@ -806,14 +806,14 @@
                                                 </cells>
                                             </collectionView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Orv-OO-3XQ">
-                                                <rect key="frame" x="20" y="351" width="374" height="1"/>
+                                                <rect key="frame" x="20" y="359" width="374" height="1"/>
                                                 <color key="backgroundColor" systemColor="systemGrayColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="1" id="m9A-Rs-oIe"/>
                                                 </constraints>
                                             </view>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="bFc-aH-rMv">
-                                                <rect key="frame" x="20" y="496.5" width="374" height="179"/>
+                                                <rect key="frame" x="20" y="504.5" width="374" height="179"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DQQ-cP-Psy">
                                                         <rect key="frame" x="0.0" y="0.0" width="179" height="179"/>
@@ -837,7 +837,7 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="48x-Ok-TDE">
-                                                <rect key="frame" x="20" y="695.5" width="374" height="179"/>
+                                                <rect key="frame" x="20" y="703.5" width="374" height="179"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ohY-tt-4kx">
                                                         <rect key="frame" x="0.0" y="0.0" width="179" height="179"/>
@@ -861,7 +861,7 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="ddp-N3-K1H">
-                                                <rect key="frame" x="20" y="894.5" width="374" height="179"/>
+                                                <rect key="frame" x="20" y="902.5" width="374" height="179"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7zB-UL-wHc">
                                                         <rect key="frame" x="0.0" y="0.0" width="179" height="179"/>
@@ -885,7 +885,7 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="m3t-8j-DVn">
-                                                <rect key="frame" x="20" y="1093.5" width="374" height="179"/>
+                                                <rect key="frame" x="20" y="1101.5" width="374" height="179"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6u2-mo-IHP">
                                                         <rect key="frame" x="0.0" y="0.0" width="179" height="179"/>
@@ -909,7 +909,7 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="bfq-2B-JT5">
-                                                <rect key="frame" x="24" y="1292.5" width="140" height="20"/>
+                                                <rect key="frame" x="24" y="1300.5" width="140" height="20"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="calender-today" translatesAutoresizingMaskIntoConstraints="NO" id="N4k-wk-AId">
                                                         <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
@@ -928,7 +928,7 @@
                                                 </subviews>
                                             </stackView>
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="OTl-dQ-UF6">
-                                                <rect key="frame" x="20" y="1320.5" width="374" height="374"/>
+                                                <rect key="frame" x="20" y="1328.5" width="374" height="374"/>
                                                 <color key="backgroundColor" systemColor="systemGray6Color"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="OTl-dQ-UF6" secondAttribute="height" multiplier="1:1" id="Cgn-2u-tG9"/>
@@ -1018,6 +1018,29 @@
                                                     </tableViewCell>
                                                 </prototypes>
                                             </tableView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="7ee-zg-dk4">
+                                                <rect key="frame" x="24" y="335" width="95.5" height="20"/>
+                                                <subviews>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="clock" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="7oh-59-Nun">
+                                                        <rect key="frame" x="0.0" y="0.5" width="20" height="19"/>
+                                                        <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="20" id="CC0-JO-LlQ"/>
+                                                            <constraint firstAttribute="width" constant="20" id="DQ3-Qw-i7X"/>
+                                                        </constraints>
+                                                    </imageView>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="시간별 예보" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yet-kA-QR7">
+                                                        <rect key="frame" x="22" y="0.0" width="73.5" height="20"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                        <color key="textColor" systemColor="systemGrayColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="yet-kA-QR7" firstAttribute="leading" secondItem="7oh-59-Nun" secondAttribute="trailing" constant="24" id="64A-vQ-LkR"/>
+                                                    <constraint firstItem="yet-kA-QR7" firstAttribute="leading" secondItem="7oh-59-Nun" secondAttribute="trailing" constant="24" id="Z34-p6-31i"/>
+                                                </constraints>
+                                            </stackView>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemGray6Color"/>
                                         <constraints>
@@ -1043,16 +1066,18 @@
                                             <constraint firstItem="AWg-ES-JRU" firstAttribute="leading" secondItem="z8i-Dl-22R" secondAttribute="leading" constant="8" id="cZ2-zI-vgr"/>
                                             <constraint firstItem="m3t-8j-DVn" firstAttribute="top" secondItem="ddp-N3-K1H" secondAttribute="bottom" constant="20" id="dCC-cE-nGR"/>
                                             <constraint firstItem="OTl-dQ-UF6" firstAttribute="leading" secondItem="z8i-Dl-22R" secondAttribute="leading" constant="20" id="djY-gJ-clM"/>
+                                            <constraint firstItem="7ee-zg-dk4" firstAttribute="top" secondItem="zHq-5J-X9S" secondAttribute="bottom" constant="4" id="fwo-fo-V4g"/>
+                                            <constraint firstItem="Orv-OO-3XQ" firstAttribute="top" secondItem="7ee-zg-dk4" secondAttribute="bottom" constant="4" id="hQc-hR-Ob9"/>
                                             <constraint firstAttribute="trailing" secondItem="jfy-M4-7BB" secondAttribute="trailing" constant="20" id="hsQ-hw-PPM"/>
                                             <constraint firstItem="jfy-M4-7BB" firstAttribute="leading" secondItem="z8i-Dl-22R" secondAttribute="leading" constant="20" id="jJs-ug-aLx"/>
                                             <constraint firstAttribute="trailing" secondItem="rGy-gl-vjN" secondAttribute="trailing" constant="20" id="juJ-yy-8mX"/>
                                             <constraint firstItem="rGy-gl-vjN" firstAttribute="top" secondItem="e78-oB-4MI" secondAttribute="bottom" constant="4" id="lUd-op-BEP"/>
+                                            <constraint firstItem="7ee-zg-dk4" firstAttribute="leading" secondItem="z8i-Dl-22R" secondAttribute="leading" constant="24" id="nCJ-xr-wZf"/>
                                             <constraint firstItem="jfy-M4-7BB" firstAttribute="top" secondItem="Orv-OO-3XQ" secondAttribute="bottom" id="nGP-Do-qDf"/>
                                             <constraint firstItem="Orv-OO-3XQ" firstAttribute="leading" secondItem="z8i-Dl-22R" secondAttribute="leading" constant="20" id="nby-Sx-8nU"/>
                                             <constraint firstItem="e78-oB-4MI" firstAttribute="top" secondItem="AWg-ES-JRU" secondAttribute="bottom" constant="4" id="oGi-T1-JKy"/>
                                             <constraint firstItem="OTl-dQ-UF6" firstAttribute="top" secondItem="bfq-2B-JT5" secondAttribute="bottom" constant="8" id="p0Y-17-2KR"/>
                                             <constraint firstAttribute="trailing" secondItem="ddp-N3-K1H" secondAttribute="trailing" constant="20" id="pl6-oU-KrB"/>
-                                            <constraint firstItem="Orv-OO-3XQ" firstAttribute="top" secondItem="zHq-5J-X9S" secondAttribute="bottom" constant="20" id="qjp-2g-Ras"/>
                                             <constraint firstItem="bfq-2B-JT5" firstAttribute="top" secondItem="m3t-8j-DVn" secondAttribute="bottom" constant="20" id="qpg-xe-VPY"/>
                                             <constraint firstItem="ddp-N3-K1H" firstAttribute="top" secondItem="48x-Ok-TDE" secondAttribute="bottom" constant="20" id="tph-Jr-WVD"/>
                                             <constraint firstAttribute="trailing" secondItem="e78-oB-4MI" secondAttribute="trailing" constant="12" id="uxT-jJ-3kB"/>
@@ -1094,6 +1119,7 @@
                         <outlet property="weatherRegionLabel" destination="5JH-mR-bxk" id="VCr-2m-Bpx"/>
                         <outlet property="weatherTempLabel" destination="d8X-xF-HP3" id="wDf-ez-G6t"/>
                         <outlet property="weatherView" destination="rGy-gl-vjN" id="9jD-jM-Did"/>
+                        <outlet property="weekWeatherTableView" destination="OTl-dQ-UF6" id="oYQ-sj-N3c"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6rf-50-wKr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1152,6 +1178,7 @@
         <image name="arrow2" width="22" height="24"/>
         <image name="calender-check" width="24" height="24"/>
         <image name="calender-today" width="16" height="16"/>
+        <image name="clock" catalog="system" width="128" height="123"/>
         <image name="cloud" width="1494" height="998"/>
         <image name="earthTemp" width="256" height="40.5"/>
         <image name="ellipsis" catalog="system" width="128" height="37"/>

@@ -5,7 +5,8 @@
 import UIKit
 
 
-class CurrentWeatherViewController: UIViewController, UISearchBarDelegate, UICollectionViewDelegate, UICollectionViewDataSource {
+class CurrentWeatherViewController: UIViewController, UISearchBarDelegate, UICollectionViewDelegate, UICollectionViewDataSource, UITableViewDelegate, UITableViewDataSource {
+    
     
     //가장 기본 뷰
     @IBOutlet weak var backgroundView: UIView!
@@ -25,6 +26,8 @@ class CurrentWeatherViewController: UIViewController, UISearchBarDelegate, UICol
     @IBOutlet weak var weatherPageControl: UIPageControl!
     //컬렉션뷰
     @IBOutlet weak var weatherCollectionView: UICollectionView!
+    //테이블뷰
+    @IBOutlet weak var weekWeatherTableView: UITableView!
     
     //시간당 온도
     var hourWeatherTempArray: [String] = []
@@ -48,6 +51,9 @@ class CurrentWeatherViewController: UIViewController, UISearchBarDelegate, UICol
         //collectionView 델리게이트 설정
         weatherCollectionView.delegate = self
         weatherCollectionView.dataSource = self
+        //테이블뷰 델리케이트 설정
+        weekWeatherTableView.delegate = self
+        weekWeatherTableView.dataSource = self
         
         //기본뷰 터치가 가능하도록 설정
         self.backgroundView.isUserInteractionEnabled = true
@@ -103,11 +109,11 @@ class CurrentWeatherViewController: UIViewController, UISearchBarDelegate, UICol
         guard let searchTerm = searchBar.text, searchTerm.isEmpty == false else { return }
         print("검색어: \(searchTerm)")
     }
-    
+    //컬랙션뷰 셀 갯수 설정
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 24
     }
-    
+    //컬렉션뷰 셀 설정
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = weatherCollectionView.dequeueReusableCell(withReuseIdentifier: "WeatherCollectionViewCell", for: indexPath) as! WeatherCollectionViewCell
         
@@ -129,4 +135,41 @@ class CurrentWeatherViewController: UIViewController, UISearchBarDelegate, UICol
         
         return cell
     }
+    //테이블뷰 셀 갯수 설정
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 10
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = weekWeatherTableView.dequeueReusableCell(withIdentifier: "WeekWeatherTableViewCell", for: indexPath) as! WeekWeatherTableViewCell
+        //DateFormatter 생성
+        let formatter = DateFormatter()
+        //요일만 나오도록 설정
+        formatter.dateFormat = "EEE"
+        //오늘은 오늘이라고 설정하고 나머지는 요일로 나타내는 배열
+        var weekDayArray: [String] = ["오늘"]
+        for i in 1...9 {
+            weekDayArray.insert(formatter.string(from: Date(timeIntervalSinceNow: 86400 * Double(i))), at: i)
+        }
+        //셀에 요일 넣기
+        cell.weekDay.text = weekDayArray[indexPath.row]
+        //최고, 최저 온도 및
+        if self.weekWeatherMaxTempArray.count == 10, self.weekWeatherSymbolArray.count == 10 {
+            cell.weekWeatherMaxTemp.text = "\(self.weekWeatherMaxTempArray[indexPath.row])º"
+            cell.weekWeatherMinTemp.text = "\(self.weekWeatherMinTempArray[indexPath.row])º"
+            cell.weekWeatherImage.image = UIImage(named: self.weekWeatherSymbolArray[indexPath.row])
+            cell.tempProgressView.progress = 0.5 + Float((self.weekWeatherMaxTempArray[indexPath.row] + self.weekWeatherMinTempArray[indexPath.row])) / 100.0
+        }
+        
+        
+        return cell
+    }
 }
+
+class WeatherCollectionViewCell: UICollectionViewCell {
+    
+    @IBOutlet weak var weatherCollectionImage: UIImageView!
+    @IBOutlet weak var weatherCollectionDate: UILabel!
+    @IBOutlet weak var weatherCollectionTemp: UILabel!
+}
+
