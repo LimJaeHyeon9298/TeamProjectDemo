@@ -53,23 +53,23 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITableViewDa
     var weekWeatherMinTempArray: [Int] = []
     var weekWeatherSymbolArray: [String] = []
     //오늘 온도, 최고 최저 온도, 심볼네임
-    var currentWeatherTemp = ""
+    var currentWeatherTemp: Int = 0
     var currentWeatherSymbol = ""
-    var dailyWeatherMaxTemp = ""
-    var dailyWeatherMinTemp = ""
+    var dailyWeatherMaxTemp: Int = 0
+    var dailyWeatherMinTemp: Int = 0
     //가시거리
-    var currentWeatherVisibility = ""
+    var currentWeatherVisibility: Int = 0
     //자외선 지수
-    var currentWeatherUvIndex = ""
+    var currentWeatherUvIndex: Int = 0
     //풍속, 풍향
     var currentWeatherWindSpeed = ""
     var currentWeatherWinddirection = ""
     //체감온도
-    var currentWeatherApparentTemperature = ""
+    var currentWeatherApparentTemperature: Int = 0
     //습도
-    var currentWeatherHumidity = ""
+    var currentWeatherHumidity: Int = 0
     //강수량
-    var precipitation = ""
+    var precipitation: Int = 0
     
     
     override func viewDidLoad() {
@@ -124,17 +124,17 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITableViewDa
                     }
 
                     //현재 날씨 받아오기
-                    self.dailyWeatherMaxTemp = "최고:\(Int(round(self.weather!.dailyForecast[0].highTemperature.value)))º"
-                    self.dailyWeatherMinTemp = "최저:\(Int(round(self.weather!.dailyForecast[0].lowTemperature.value)))º"
+                    self.dailyWeatherMaxTemp = Int(round(self.weather!.dailyForecast[0].highTemperature.value))
+                    self.dailyWeatherMinTemp = Int(round(self.weather!.dailyForecast[0].lowTemperature.value))
                     self.currentWeatherSymbol = self.weather!.currentWeather.symbolName
-                    self.currentWeatherTemp = "\(Int(round(self.weather!.currentWeather.temperature.value)))º"
-                    self.currentWeatherVisibility = "\(Int(round(self.weather!.currentWeather.visibility.value / 1000)))km"
-                    self.currentWeatherUvIndex = "\(self.weather!.currentWeather.uvIndex.value)"
+                    self.currentWeatherTemp = Int(round(self.weather!.currentWeather.temperature.value))
+                    self.currentWeatherVisibility = Int(round(self.weather!.currentWeather.visibility.value / 1000))
+                    self.currentWeatherUvIndex = self.weather!.currentWeather.uvIndex.value
                     self.currentWeatherWindSpeed = "\(self.weather!.currentWeather.wind.speed.value)"
                     self.currentWeatherWinddirection = "\(self.weather!.currentWeather.wind.direction.value)"
-                    self.currentWeatherApparentTemperature = "\(Int(round(self.weather!.currentWeather.apparentTemperature.value)))º"
-                    self.currentWeatherHumidity = "\(Int(round(self.weather!.currentWeather.humidity * 100)))%"
-                    self.precipitation = "\(Int(round(self.weather!.dailyForecast[0].precipitationChance * 100)))%"
+                    self.currentWeatherApparentTemperature = Int(round(self.weather!.currentWeather.apparentTemperature.value))
+                    self.currentWeatherHumidity = Int(round(self.weather!.currentWeather.humidity * 100))
+                    self.precipitation = Int(round(self.weather!.dailyForecast[0].precipitationChance * 100))
                     
                     //ui세팅
                     self.setWeatherUI()
@@ -234,11 +234,11 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITableViewDa
         //        weatherMaxTempLabel.text = "최고:\(Int(main!.temp_max - 273.15))ºC"
         //        weatherMinTempLabel.text = "최저:\(Int(main!.temp_min - 273.15))ºC"
         //현재온도
-        weatherTempLabel.text = self.currentWeatherTemp
+        weatherTempLabel.text = "\(self.currentWeatherTemp)º"
         //최고온도
-        weatherMaxTempLabel.text = self.dailyWeatherMaxTemp
+        weatherMaxTempLabel.text = "최고:\(self.dailyWeatherMaxTemp)º"
         //최저온도
-        weatherMinTempLabel.text = self.dailyWeatherMinTemp
+        weatherMinTempLabel.text = "최저:\(self.dailyWeatherMinTemp)º"
         //심볼네임
         weatherImage.image = UIImage(named: self.currentWeatherSymbol)
         print(weather!.currentWeather.symbolName)
