@@ -114,6 +114,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITableViewDa
                     print(self.weekWeatherSymbolArray)
                     //현재시간 불러오기
                     let formatter = DateFormatter()
+                    formatter.locale = Locale(identifier: "ko")
                     formatter.dateFormat = "HH"
                     let currentHour = Int(formatter.string(from: Date()))!
                     print(currentHour)
