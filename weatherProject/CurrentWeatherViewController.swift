@@ -5,14 +5,12 @@
 import UIKit
 
 
-class CurrentWeatherViewController: UIViewController, UISearchBarDelegate, UICollectionViewDelegate, UICollectionViewDataSource, UITableViewDelegate, UITableViewDataSource {
+class CurrentWeatherViewController: UIViewController {
     
     
     //가장 기본 뷰
     @IBOutlet weak var backgroundView: UIView!
     
-    //searchBar
-    @IBOutlet weak var searchBar: UISearchBar!
     //현재 날씨
     @IBOutlet weak var weatherView: UIView!
     @IBOutlet weak var weatherRegionLabel: UILabel!
@@ -97,7 +95,7 @@ class CurrentWeatherViewController: UIViewController, UISearchBarDelegate, UICol
         super.viewDidLoad()
         setupUI()
         //searchBar 델리게이트 설정
-        searchBar.delegate = self
+//        searchBar.delegate = self
         //collectionView 델리게이트 설정
         weatherCollectionView.delegate = self
         weatherCollectionView.dataSource = self
@@ -117,7 +115,7 @@ class CurrentWeatherViewController: UIViewController, UISearchBarDelegate, UICol
     //view세팅
     func setupUI() {
         weatherView.layer.cornerRadius = 15
-        searchBar.layer.cornerRadius = 15
+//        searchBar.layer.cornerRadius = 15
         uvIndexView.layer.cornerRadius = 15
         visibilityView.layer.cornerRadius = 15
         windView.layer.cornerRadius = 15
@@ -276,9 +274,9 @@ class CurrentWeatherViewController: UIViewController, UISearchBarDelegate, UICol
     func apparentTemperatureExSetup() {
         if currentWeatherTemp == currentWeatherApparentTemperature {
             apparentTemperatureExLabel.text = "실제 온도와 동일하게 느껴집니다."
-        } else if currentWeatherTemp > currentWeatherApparentTemperature {
-            apparentTemperatureExLabel.text = "실제 온도보다 더 따듯하게 느껴집니다."
         } else if currentWeatherTemp < currentWeatherApparentTemperature {
+            apparentTemperatureExLabel.text = "실제 온도보다 더 따듯하게 느껴집니다."
+        } else if currentWeatherTemp > currentWeatherApparentTemperature {
             apparentTemperatureExLabel.text = "실제 온도보다 더 춥게 느껴집니다."
         }
     }
@@ -290,7 +288,7 @@ class CurrentWeatherViewController: UIViewController, UISearchBarDelegate, UICol
     
     //기본뷰를 눌렀을때 키보드가 내려가도록 설정
     @objc func backgroundViewTapped() {
-        searchBar.resignFirstResponder()
+//        searchBar.resignFirstResponder()
     }
     
     //서치바 버튼이 눌렸을 때
@@ -304,7 +302,18 @@ class CurrentWeatherViewController: UIViewController, UISearchBarDelegate, UICol
         guard let searchTerm = searchBar.text, searchTerm.isEmpty == false else { return }
         print("검색어: \(searchTerm)")
     }
+}
+
+//컬렉션뷰 클래스 설정
+class WeatherCollectionViewCell: UICollectionViewCell {
     
+    @IBOutlet weak var weatherCollectionImage: UIImageView!
+    @IBOutlet weak var weatherCollectionDate: UILabel!
+    @IBOutlet weak var weatherCollectionTemp: UILabel!
+}
+
+//컬렉션뷰 설정
+extension CurrentWeatherViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     //컬랙션뷰 셀 갯수 설정
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 24
@@ -331,7 +340,10 @@ class CurrentWeatherViewController: UIViewController, UISearchBarDelegate, UICol
         
         return cell
     }
-    
+}
+
+//테이블뷰 설정
+extension CurrentWeatherViewController: UITableViewDelegate, UITableViewDataSource {
     //테이블뷰 셀 갯수 설정
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 10
@@ -360,12 +372,3 @@ class CurrentWeatherViewController: UIViewController, UISearchBarDelegate, UICol
         return cell
     }
 }
-
-//컬렉션뷰 클래스 설정
-class WeatherCollectionViewCell: UICollectionViewCell {
-    
-    @IBOutlet weak var weatherCollectionImage: UIImageView!
-    @IBOutlet weak var weatherCollectionDate: UILabel!
-    @IBOutlet weak var weatherCollectionTemp: UILabel!
-}
-
