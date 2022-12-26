@@ -273,7 +273,7 @@ class CurrentWeatherViewController: UIViewController {
     //체감온도 ex레이블 세팅
     func apparentTemperatureExSetup() {
         if currentWeatherTemp == currentWeatherApparentTemperature {
-            apparentTemperatureExLabel.text = "실제 온도와 동일하게 느껴집니다."
+            apparentTemperatureExLabel.text = "실제 온도와 비슷하게 느껴집니다."
         } else if currentWeatherTemp < currentWeatherApparentTemperature {
             apparentTemperatureExLabel.text = "실제 온도보다 더 따듯하게 느껴집니다."
         } else if currentWeatherTemp > currentWeatherApparentTemperature {

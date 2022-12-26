@@ -54,6 +54,29 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		457299E529593C0200D7DF1E /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				4530FFD129582863001AA849 /* SearchController.swift */,
+				4530FFD32958287E001AA849 /* SearchResultCell.swift */,
+				4530FFD529582895001AA849 /* SearchResultDelegate.swift */,
+				4530FFD7295828AC001AA849 /* MKMapItem+Extension.swift */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		457299E629593C1D00D7DF1E /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				463ADD8828E6DD06009024DE /* ViewController.swift */,
+				457BF4632929DFF9009F08ED /* FirstViewController.swift */,
+				452C1871292E335B00E6FDC1 /* CalenderViewController.swift */,
+				45B9385A293DE11900051488 /* CurrentWeatherViewController.swift */,
+				4530FFCF29582673001AA849 /* SearchViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		45DADB5829399DB30062D72B /* Delegate */ = {
 			isa = PBXGroup;
 			children = (
@@ -84,15 +107,8 @@
 			children = (
 				45DADB5829399DB30062D72B /* Delegate */,
 				45291403293990230016FFE7 /* weatherProject.entitlements */,
-				463ADD8828E6DD06009024DE /* ViewController.swift */,
-				457BF4632929DFF9009F08ED /* FirstViewController.swift */,
-				452C1871292E335B00E6FDC1 /* CalenderViewController.swift */,
-				45B9385A293DE11900051488 /* CurrentWeatherViewController.swift */,
-				4530FFCF29582673001AA849 /* SearchViewController.swift */,
-				4530FFD129582863001AA849 /* SearchController.swift */,
-				4530FFD32958287E001AA849 /* SearchResultCell.swift */,
-				4530FFD529582895001AA849 /* SearchResultDelegate.swift */,
-				4530FFD7295828AC001AA849 /* MKMapItem+Extension.swift */,
+				457299E629593C1D00D7DF1E /* Controller */,
+				457299E529593C0200D7DF1E /* Search */,
 				463ADD8A28E6DD06009024DE /* Main.storyboard */,
 				463ADD8D28E6DD08009024DE /* Assets.xcassets */,
 				463ADD8F28E6DD08009024DE /* LaunchScreen.storyboard */,

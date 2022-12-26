@@ -392,6 +392,7 @@
                         <segue destination="EiK-Gc-WGF" kind="presentation" identifier="showFirstView" modalPresentationStyle="fullScreen" id="EHV-yi-9ZT"/>
                         <segue destination="1Ph-NK-gqh" kind="presentation" identifier="showCalenderView" modalPresentationStyle="pageSheet" id="gTu-C5-VCk"/>
                         <segue destination="c9E-wp-q8H" kind="presentation" identifier="showCurrentWeatherView" modalPresentationStyle="fullScreen" id="mWF-7I-FQS"/>
+                        <segue destination="yDM-Fs-7Hc" kind="presentation" identifier="showSearchView" id="phe-B5-UBk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -1420,6 +1421,9 @@
             <point key="canvasLocation" x="1616" y="-231"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="phe-B5-UBk"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="arrow" width="22" height="24"/>
         <image name="arrow2" width="22" height="24"/>

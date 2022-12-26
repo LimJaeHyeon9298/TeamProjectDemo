@@ -45,6 +45,7 @@ extension SearchViewController: SearchResultDelegate {
         print(mapItem.placemark.coordinate.latitude)
         print(mapItem.placemark.coordinate.longitude)
         
+        
         // clear search phrase
         searchController.searchBar.text = ""
     }

@@ -85,10 +85,12 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITableViewDa
         self.firstview.isUserInteractionEnabled = true
         self.calenderView.isUserInteractionEnabled = true
         self.weatherView.isUserInteractionEnabled = true
+        self.otherOptionView.isUserInteractionEnabled = true
         //제쳐스 추가
         self.firstview.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.firstViewTapped)))
         self.calenderView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.calenderViewTapped)))
         self.weatherView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.weatherViewTapped)))
+        self.otherOptionView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.otherOptionViewTapped)))
         //테이블뷰 델리케이트 설정
         weekWeatherTableView.delegate = self
         weekWeatherTableView.dataSource = self
@@ -199,6 +201,10 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITableViewDa
     //캘린더뷰를 눌렀을 때
     @objc func calenderViewTapped(_ sender: UITapGestureRecognizer) {
         performSegue(withIdentifier: "showCalenderView", sender: sender)
+    }
+    //검색뷰를 눌렀을 때
+    @objc func otherOptionViewTapped(_ sender: UITapGestureRecognizer) {
+        performSegue(withIdentifier: "showSearchView", sender: sender)
     }
     //현재 날씨 뷰를 눌렀을 때
     @objc func weatherViewTapped(_ sender: UITapGestureRecognizer) {
