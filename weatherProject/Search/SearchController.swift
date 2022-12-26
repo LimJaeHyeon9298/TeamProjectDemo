@@ -84,7 +84,7 @@ extension SearchController: UISearchResultsUpdating {
     }
 }
 
-extension SearchController: UITableViewDataSource {
+extension SearchController: UITableViewDataSource, UITableViewDelegate  {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return searchResults.count
     }
@@ -96,9 +96,7 @@ extension SearchController: UITableViewDataSource {
         
         return cell
     }
-}
-
-extension SearchController: UITableViewDelegate {
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         delegate?.foundResult(mapItem: searchResults[indexPath.row])
         
@@ -109,3 +107,4 @@ extension SearchController: UITableViewDelegate {
         return 50
     }
 }
+
