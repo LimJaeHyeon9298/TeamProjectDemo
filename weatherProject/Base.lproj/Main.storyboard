@@ -1357,7 +1357,7 @@
             </objects>
             <point key="canvasLocation" x="2302.898550724638" y="97.767857142857139"/>
         </scene>
-        <!--Search View Controller-->
+        <!--Title-->
         <scene sceneID="WRw-7h-qDM">
             <objects>
                 <viewController id="yDM-Fs-7Hc" customClass="SearchViewController" customModule="weatherProject" customModuleProvider="target" sceneMemberID="viewController">
@@ -1367,6 +1367,7 @@
                         <viewLayoutGuide key="safeArea" id="b8s-qV-T0U"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Title" id="cLO-Rj-BXL"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="peV-3q-E4J" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
