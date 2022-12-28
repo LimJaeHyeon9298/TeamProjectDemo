@@ -20,8 +20,6 @@ class CurrentWeatherViewController: UIViewController {
     @IBOutlet weak var weatherLabel: UILabel!
     @IBOutlet weak var weatherMaxTempLabel: UILabel!
     @IBOutlet weak var weatherMinTempLabel: UILabel!
-    //페이지 컨트롤
-    @IBOutlet weak var weatherPageControl: UIPageControl!
     //컬렉션뷰
     @IBOutlet weak var weatherCollectionView: UICollectionView!
     //자외선 지수

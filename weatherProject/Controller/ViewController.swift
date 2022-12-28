@@ -20,17 +20,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     @IBOutlet weak var calenderView: UIView!
     //기능 뷰
     @IBOutlet weak var otherOptionView: UIView!
-    //현재 날씨 뷰
-    @IBOutlet weak var weatherView: UIView!
-    @IBOutlet weak var weatherRegionLabel: UILabel!
-    @IBOutlet weak var weatherTempLabel: UILabel!
-    @IBOutlet weak var weatherDateLabel: UILabel!
-    @IBOutlet weak var weatherImage: UIImageView!
-    @IBOutlet weak var weatherLabel: UILabel!
-    @IBOutlet weak var weatherMaxTempLabel: UILabel!
-    @IBOutlet weak var weatherMinTempLabel: UILabel!
-    //페이지컨트롤
-    @IBOutlet weak var weatherPageControl: UIPageControl!
     //테이블뷰
     @IBOutlet weak var weekWeatherTableView: UITableView!
     
@@ -45,35 +34,10 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     let seoul = CLLocation(latitude: 37.5666, longitude: 126.9784)
     //날씨 데이터 저장
     var weather: Weather?
-    //날씨 컨디션 저장
-    var currentWeatherCondition = ""
-    //시간당 온도
-    var hourWeatherTempArray: [String] = []
-    var hourWeatherSymbol: [String] = []
     //10일간 최고 최저 온도
     var weekWeatherMaxTempArray: [Int] = []
     var weekWeatherMinTempArray: [Int] = []
     var weekWeatherSymbolArray: [String] = []
-    //오늘 온도, 최고 최저 온도, 심볼네임
-    var currentWeatherTemp: Int = 0
-    var currentWeatherSymbol = ""
-    var dailyWeatherMaxTemp: Int = 0
-    var dailyWeatherMinTemp: Int = 0
-    //가시거리
-    var currentWeatherVisibility: Int = 0
-    //자외선 지수
-    var currentWeatherUvIndex: Int = 0
-    //풍속, 풍향
-    var currentWeatherWindSpeed: Int = 0
-    var currentWeatherWinddirection = ""
-    //체감온도
-    var currentWeatherApparentTemperature: Int = 0
-    //습도
-    var currentWeatherHumidity: Int = 0
-    //이슬점
-    var currentWeatherDewPoint: Int = 0
-    //강수량
-    var precipitation: Int = 0
     
     
     override func viewDidLoad() {
@@ -84,12 +48,10 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         //view를 클릭 가능하도록 설정
         self.firstview.isUserInteractionEnabled = true
         self.calenderView.isUserInteractionEnabled = true
-        self.weatherView.isUserInteractionEnabled = true
         self.otherOptionView.isUserInteractionEnabled = true
         //제쳐스 추가
         self.firstview.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.firstViewTapped)))
         self.calenderView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.calenderViewTapped)))
-        self.weatherView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.weatherViewTapped)))
         self.otherOptionView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.otherOptionViewTapped)))
         //테이블뷰 델리케이트 설정
         weekWeatherTableView.delegate = self
@@ -117,40 +79,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
                         self.weekWeatherMinTempArray.append(Int(round(self.weather!.dailyForecast[i].lowTemperature.value)))
                         self.weekWeatherSymbolArray.append(self.weather!.dailyForecast[i].symbolName)
                     }
-                    print(self.weekWeatherSymbolArray)
-                    print(self.weather!.currentWeather.condition)
-                    print(self.weather!.currentWeather.symbolName)
-                    print(self.weather!.currentWeather.condition)
-                    //현재시간 불러오기
-                    let formatter = DateFormatter()
-                    formatter.locale = Locale(identifier: "ko")
-                    formatter.dateFormat = "HH"
-                    let currentHour = Int(formatter.string(from: Date()))!
-                    //시간당 날씨 받아오기
-                    for j in (currentHour + 2)...(currentHour + 25) {
-                        self.hourWeatherTempArray.append("\(Int(round(self.weather!.hourlyForecast[j].temperature.value)))º")
-                        self.hourWeatherSymbol.append(self.weather!.hourlyForecast[j].symbolName)
-                    }
-
-                    //현재 날씨 받아오기
-                    self.currentWeatherCondition = self.weather!.currentWeather.condition.rawValue
-                    self.dailyWeatherMaxTemp = Int(round(self.weather!.dailyForecast[0].highTemperature.value))
-                    self.dailyWeatherMinTemp = Int(round(self.weather!.dailyForecast[0].lowTemperature.value))
-                    self.currentWeatherSymbol = self.weather!.currentWeather.symbolName
-                    self.currentWeatherTemp = Int(round(self.weather!.currentWeather.temperature.value))
-                    self.currentWeatherVisibility = Int(round(self.weather!.currentWeather.visibility.value / 1000))
-                    self.currentWeatherUvIndex = self.weather!.currentWeather.uvIndex.value
-                    self.currentWeatherWindSpeed = Int(round(self.weather!.currentWeather.wind.speed.value / 3.6))
-                    self.currentWeatherWinddirection = "\(self.weather!.currentWeather.wind.compassDirection.rawValue)"
-                    print(self.currentWeatherWinddirection)
-                    self.currentWeatherApparentTemperature = Int(round(self.weather!.currentWeather.apparentTemperature.value))
-                    self.currentWeatherHumidity = Int(round(self.weather!.currentWeather.humidity * 100))
-                    self.precipitation = Int(round(self.weather!.dailyForecast[0].precipitationChance * 100))
-                    self.currentWeatherDewPoint = Int(round(self.weather!.currentWeather.dewPoint.value))
                     
                     //ui세팅
-                    self.currentWeatherConditionKO()
-                    self.setWeatherUI()
                     self.weekWeatherTableView.reloadData()
                 } catch {
                     print("error")
@@ -174,8 +104,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         //                print("error")
         //            }
         //        }
-        
-        
     }
     
     func setupUI() {
@@ -184,7 +112,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         LYtempView.layer.cornerRadius = 15
         calenderView.layer.cornerRadius = 15
         otherOptionView.layer.cornerRadius = 15
-        weatherView.layer.cornerRadius = 15
         
         firstview.backgroundColor = UIColor(patternImage: UIImage(named: "earthBackGround")!)
     }
@@ -200,134 +127,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     //검색뷰를 눌렀을 때
     @objc func otherOptionViewTapped(_ sender: UITapGestureRecognizer) {
         performSegue(withIdentifier: "showSearchView", sender: sender)
-    }
-    //현재 날씨 뷰를 눌렀을 때
-    @objc func weatherViewTapped(_ sender: UITapGestureRecognizer) {
-        performSegue(withIdentifier: "showCurrentWeatherView", sender: sender)
-    }
-    //currnetViewController로 데이터 전송
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "showCurrentWeatherView" {
-            guard let vc = segue.destination as? CurrentWeatherViewController else { return }
-            vc.currentWeatherCondition = self.currentWeatherCondition
-            vc.hourWeatherTempArray = self.hourWeatherTempArray
-            vc.weekWeatherSymbolArray = self.weekWeatherSymbolArray
-            vc.weekWeatherMaxTempArray = self.weekWeatherMaxTempArray
-            vc.weekWeatherMinTempArray = self.weekWeatherMinTempArray
-            vc.currentWeatherTemp = self.currentWeatherTemp
-            vc.currentWeatherSymbol = self.currentWeatherSymbol
-            vc.dailyWeatherMaxTemp = self.dailyWeatherMaxTemp
-            vc.dailyWeatherMinTemp = self.dailyWeatherMinTemp
-            vc.hourWeatherSymbol = self.hourWeatherSymbol
-            vc.currentWeatherVisibility = self.currentWeatherVisibility
-            vc.currentWeatherUvIndex = self.currentWeatherUvIndex
-            vc.currentWeatherWindSpeed = self.currentWeatherWindSpeed
-            vc.currentWeatherWinddirection = self.currentWeatherWinddirection
-            vc.currentWeatherApparentTemperature = self.currentWeatherApparentTemperature
-            vc.currentWeatherHumidity = self.currentWeatherHumidity
-            vc.currentWeatherDewPoint = self.currentWeatherDewPoint
-            vc.precipitation = self.precipitation
-        }
-    }
-    
-    //페이지컨트롤
-    @IBAction func pageChanged(_ sender: UIPageControl) {
-        
-    }
-    
-    //현재 온도 세팅
-    private func setWeatherUI() {
-        //오늘 날짜 표시
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy년 MM월 d일 (E)"
-        weatherDateLabel.text = formatter.string(from: Date())
-        weatherRegionLabel.text = "서울"
-        
-        weatherLabel.text = self.currentWeatherCondition
-        //현재온도
-        weatherTempLabel.text = "\(self.currentWeatherTemp)º"
-        //최고온도
-        weatherMaxTempLabel.text = "최고:\(self.dailyWeatherMaxTemp)º"
-        //최저온도
-        weatherMinTempLabel.text = "최저:\(self.dailyWeatherMinTemp)º"
-        //심볼네임
-        weatherImage.image = UIImage(named: self.currentWeatherSymbol)
-    }
-    
-    //날씨 컨디션 케이스별 번역
-    func currentWeatherConditionKO() {
-        switch currentWeatherCondition {
-        case "blowingDust":
-            currentWeatherCondition = "먼지"
-        case "clear":
-            currentWeatherCondition = "맑음"
-        case "cloudy":
-            currentWeatherCondition = "흐림"
-        case "foggy":
-            currentWeatherCondition = "안개"
-        case "haze":
-            currentWeatherCondition = "연무"
-        case "mostlyClear":
-            currentWeatherCondition = "대체로 맑음"
-        case "mostlyCloudy":
-            currentWeatherCondition = "대체로 흐림"
-        case "partlyCloudy":
-            currentWeatherCondition = "한때 흐림"
-        case "smoky":
-            currentWeatherCondition = "연기"
-        case "breezy":
-            currentWeatherCondition = "미풍"
-        case "windy":
-            currentWeatherCondition = "바람"
-        case "drizzle":
-            currentWeatherCondition = "이슬비"
-        case "heavyRain":
-            currentWeatherCondition = "폭우"
-        case "isolatedThunderstorms":
-            currentWeatherCondition = "외딴뇌우"
-        case "rain":
-            currentWeatherCondition = "비"
-        case "sunShowers":
-            currentWeatherCondition = "소나기"
-        case "scatteredThunderstorms":
-            currentWeatherCondition = "흩어진뇌우"
-        case "strongStorms":
-            currentWeatherCondition = "폭풍"
-        case "thunderstorms":
-            currentWeatherCondition = "뇌우"
-        case "frigid":
-            currentWeatherCondition = "몹시 추움"
-        case "hail":
-            currentWeatherCondition = "우박"
-        case "hot":
-            currentWeatherCondition = "더움"
-        case "flurries":
-            currentWeatherCondition = "돌풍"
-        case "sleet":
-            currentWeatherCondition = "진눈깨비"
-        case "snow":
-            currentWeatherCondition = "눈"
-        case "sunFlurries":
-            currentWeatherCondition = "소낙눈"
-        case "wintryMix":
-            currentWeatherCondition = "눈, 비"
-        case "blizzard":
-            currentWeatherCondition = "눈보라"
-        case "blowingSnow":
-            currentWeatherCondition = "날린눈"
-        case "freezingDrizzle":
-            currentWeatherCondition = "언 진눈깨비"
-        case "freezingRain":
-            currentWeatherCondition = "얼어붙은 비"
-        case "heavySnow":
-            currentWeatherCondition = "폭설"
-        case "hurricane":
-            currentWeatherCondition = "허리케인"
-        case "tropicalStorm":
-            currentWeatherCondition = "열대 폭풍"
-        default:
-            break
-        }
     }
 }
 

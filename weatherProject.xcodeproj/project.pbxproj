@@ -8,12 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		452C1872292E335B00E6FDC1 /* CalenderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 452C1871292E335B00E6FDC1 /* CalenderViewController.swift */; };
+		452FB1F9295BECE50087A8D7 /* weatherData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 452FB1F8295BECE50087A8D7 /* weatherData.swift */; };
 		4530FFD029582673001AA849 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4530FFCF29582673001AA849 /* SearchViewController.swift */; };
 		4530FFD229582863001AA849 /* SearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4530FFD129582863001AA849 /* SearchController.swift */; };
 		4530FFD42958287E001AA849 /* SearchResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4530FFD32958287E001AA849 /* SearchResultCell.swift */; };
 		4530FFD629582895001AA849 /* SearchResultDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4530FFD529582895001AA849 /* SearchResultDelegate.swift */; };
 		4530FFD8295828AC001AA849 /* MKMapItem+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4530FFD7295828AC001AA849 /* MKMapItem+Extension.swift */; };
 		457BF4642929DFF9009F08ED /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 457BF4632929DFF9009F08ED /* FirstViewController.swift */; };
+		457CBC05295BDD7100E9A568 /* PageDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 457CBC04295BDD7100E9A568 /* PageDetailViewController.swift */; };
+		457CBC07295BDD9500E9A568 /* CustomPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 457CBC06295BDD9500E9A568 /* CustomPageViewController.swift */; };
 		45B9385B293DE11900051488 /* CurrentWeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B9385A293DE11900051488 /* CurrentWeatherViewController.swift */; };
 		463ADD8528E6DD06009024DE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463ADD8428E6DD06009024DE /* AppDelegate.swift */; };
 		463ADD8728E6DD06009024DE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463ADD8628E6DD06009024DE /* SceneDelegate.swift */; };
@@ -26,12 +29,15 @@
 /* Begin PBXFileReference section */
 		45291403293990230016FFE7 /* weatherProject.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = weatherProject.entitlements; sourceTree = "<group>"; };
 		452C1871292E335B00E6FDC1 /* CalenderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalenderViewController.swift; sourceTree = "<group>"; };
+		452FB1F8295BECE50087A8D7 /* weatherData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = weatherData.swift; sourceTree = "<group>"; };
 		4530FFCF29582673001AA849 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		4530FFD129582863001AA849 /* SearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchController.swift; sourceTree = "<group>"; };
 		4530FFD32958287E001AA849 /* SearchResultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultCell.swift; sourceTree = "<group>"; };
 		4530FFD529582895001AA849 /* SearchResultDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultDelegate.swift; sourceTree = "<group>"; };
 		4530FFD7295828AC001AA849 /* MKMapItem+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MKMapItem+Extension.swift"; sourceTree = "<group>"; };
 		457BF4632929DFF9009F08ED /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
+		457CBC04295BDD7100E9A568 /* PageDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageDetailViewController.swift; sourceTree = "<group>"; };
+		457CBC06295BDD9500E9A568 /* CustomPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPageViewController.swift; sourceTree = "<group>"; };
 		45B9385A293DE11900051488 /* CurrentWeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentWeatherViewController.swift; sourceTree = "<group>"; };
 		463ADD8128E6DD06009024DE /* weatherProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = weatherProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		463ADD8428E6DD06009024DE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -73,6 +79,9 @@
 				452C1871292E335B00E6FDC1 /* CalenderViewController.swift */,
 				45B9385A293DE11900051488 /* CurrentWeatherViewController.swift */,
 				4530FFCF29582673001AA849 /* SearchViewController.swift */,
+				457CBC04295BDD7100E9A568 /* PageDetailViewController.swift */,
+				457CBC06295BDD9500E9A568 /* CustomPageViewController.swift */,
+				452FB1F8295BECE50087A8D7 /* weatherData.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -188,8 +197,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				457CBC05295BDD7100E9A568 /* PageDetailViewController.swift in Sources */,
 				452C1872292E335B00E6FDC1 /* CalenderViewController.swift in Sources */,
+				457CBC07295BDD9500E9A568 /* CustomPageViewController.swift in Sources */,
 				4530FFD029582673001AA849 /* SearchViewController.swift in Sources */,
+				452FB1F9295BECE50087A8D7 /* weatherData.swift in Sources */,
 				4530FFD8295828AC001AA849 /* MKMapItem+Extension.swift in Sources */,
 				463ADD8928E6DD06009024DE /* ViewController.swift in Sources */,
 				4530FFD229582863001AA849 /* SearchController.swift in Sources */,
