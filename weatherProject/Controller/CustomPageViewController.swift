@@ -77,7 +77,7 @@ extension CustomPageViewController: UIPageViewControllerDataSource {
 extension CustomPageViewController {
     
     func presentationCount(for pageViewController: UIPageViewController) -> Int {
-        return 2
+        return individualPageViewControllerList.count
     }
     func presentationIndex(for pageViewController: UIPageViewController) -> Int {
         return 0
