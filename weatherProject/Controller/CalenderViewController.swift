@@ -23,7 +23,7 @@ class CalenderViewController: UIViewController {
     
     @IBAction func selectButtonTapped(_ sender: UIButton) {
         let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy.MM.dd"
+        formatter.dateFormat = "yyyyMMdd"
         
         print(formatter.string(from: datePicker.date))
         self.dismiss(animated: true)

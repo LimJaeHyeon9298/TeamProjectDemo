@@ -5,8 +5,8 @@
 import UIKit
 import WeatherKit
 import CoreLocation
-
-class ViewController: UIViewController, CLLocationManagerDelegate, UITableViewDataSource, UITableViewDelegate {
+//hi
+class ViewController: UIViewController, CLLocationManagerDelegate {
     
     // -MARK: iboutlet
     //첫번째 뷰
@@ -85,10 +85,12 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITableViewDa
         self.firstview.isUserInteractionEnabled = true
         self.calenderView.isUserInteractionEnabled = true
         self.weatherView.isUserInteractionEnabled = true
+        self.otherOptionView.isUserInteractionEnabled = true
         //제쳐스 추가
         self.firstview.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.firstViewTapped)))
         self.calenderView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.calenderViewTapped)))
         self.weatherView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.weatherViewTapped)))
+        self.otherOptionView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.otherOptionViewTapped)))
         //테이블뷰 델리케이트 설정
         weekWeatherTableView.delegate = self
         weekWeatherTableView.dataSource = self
@@ -187,11 +189,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITableViewDa
         firstview.backgroundColor = UIColor(patternImage: UIImage(named: "earthBackGround")!)
     }
     
-    //오늘 날씨뷰 ui
-    func setupWeatherUI() {
-        
-    }
-    
     //첫번째 뷰를 눌렀을 때
     @objc func firstViewTapped(_ sender: UITapGestureRecognizer) {
         performSegue(withIdentifier: "showFirstView", sender: sender)
@@ -199,6 +196,10 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITableViewDa
     //캘린더뷰를 눌렀을 때
     @objc func calenderViewTapped(_ sender: UITapGestureRecognizer) {
         performSegue(withIdentifier: "showCalenderView", sender: sender)
+    }
+    //검색뷰를 눌렀을 때
+    @objc func otherOptionViewTapped(_ sender: UITapGestureRecognizer) {
+        performSegue(withIdentifier: "showSearchView", sender: sender)
     }
     //현재 날씨 뷰를 눌렀을 때
     @objc func weatherViewTapped(_ sender: UITapGestureRecognizer) {
@@ -233,6 +234,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITableViewDa
     @IBAction func pageChanged(_ sender: UIPageControl) {
         
     }
+    
     //현재 온도 세팅
     private func setWeatherUI() {
         //오늘 날짜 표시
@@ -250,36 +252,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITableViewDa
         weatherMinTempLabel.text = "최저:\(self.dailyWeatherMinTemp)º"
         //심볼네임
         weatherImage.image = UIImage(named: self.currentWeatherSymbol)
-    }
-    
-    //테이블뷰 셀의 숫자
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
-    }
-    //테이블뷰 셀 설정
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = weekWeatherTableView.dequeueReusableCell(withIdentifier: "WeekWeatherTableViewCell", for: indexPath) as! WeekWeatherTableViewCell
-        cell.selectionStyle = .none
-        //DateFormatter 생성
-        let formatter = DateFormatter()
-        //요일만 나오도록 설정
-        formatter.dateFormat = "EEE"
-        //오늘은 오늘이라고 설정하고 나머지는 요일로 나타내는 배열
-        var weekDayArray: [String] = ["오늘"]
-        for i in 1...9 {
-            weekDayArray.insert(formatter.string(from: Date(timeIntervalSinceNow: 86400 * Double(i))), at: i)
-        }
-        //셀에 요일 넣기
-        cell.weekDay.text = weekDayArray[indexPath.row]
-        //최고, 최저 온도 및 
-        if self.weekWeatherMaxTempArray.count == 10, self.weekWeatherSymbolArray.count == 10 {
-            cell.weekWeatherMaxTemp.text = "\(self.weekWeatherMaxTempArray[indexPath.row])º"
-            cell.weekWeatherMinTemp.text = "\(self.weekWeatherMinTempArray[indexPath.row])º"
-            cell.weekWeatherImage.image = UIImage(named: self.weekWeatherSymbolArray[indexPath.row])
-            cell.tempProgressView.progress = 0.5 + Float((self.weekWeatherMaxTempArray[indexPath.row] + self.weekWeatherMinTempArray[indexPath.row])) / 100.0
-        }
-            
-        return cell
     }
     
     //날씨 컨디션 케이스별 번역
@@ -357,7 +329,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITableViewDa
             break
         }
     }
-    
 }
 
 class WeekWeatherTableViewCell: UITableViewCell {
@@ -369,4 +340,34 @@ class WeekWeatherTableViewCell: UITableViewCell {
     @IBOutlet weak var tempProgressView: UIProgressView!
 }
 
-
+extension ViewController: UITableViewDataSource, UITableViewDelegate {
+    //테이블뷰 셀의 숫자
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 10
+    }
+    //테이블뷰 셀 설정
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = weekWeatherTableView.dequeueReusableCell(withIdentifier: "WeekWeatherTableViewCell", for: indexPath) as! WeekWeatherTableViewCell
+        cell.selectionStyle = .none
+        //DateFormatter 생성
+        let formatter = DateFormatter()
+        //요일만 나오도록 설정
+        formatter.dateFormat = "EEE"
+        //오늘은 오늘이라고 설정하고 나머지는 요일로 나타내는 배열
+        var weekDayArray: [String] = ["오늘"]
+        for i in 1...9 {
+            weekDayArray.insert(formatter.string(from: Date(timeIntervalSinceNow: 86400 * Double(i))), at: i)
+        }
+        //셀에 요일 넣기
+        cell.weekDay.text = weekDayArray[indexPath.row]
+        //최고, 최저 온도 및
+        if self.weekWeatherMaxTempArray.count == 10, self.weekWeatherSymbolArray.count == 10 {
+            cell.weekWeatherMaxTemp.text = "\(self.weekWeatherMaxTempArray[indexPath.row])º"
+            cell.weekWeatherMinTemp.text = "\(self.weekWeatherMinTempArray[indexPath.row])º"
+            cell.weekWeatherImage.image = UIImage(named: self.weekWeatherSymbolArray[indexPath.row])
+            cell.tempProgressView.progress = 0.5 + Float((self.weekWeatherMaxTempArray[indexPath.row] + self.weekWeatherMinTempArray[indexPath.row])) / 100.0
+        }
+            
+        return cell
+    }
+}
