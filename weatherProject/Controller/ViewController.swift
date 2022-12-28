@@ -104,6 +104,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         //위치 업데이트
         locationManager.startUpdatingLocation()
         
+        //weatherkit 사용
         let weatherService = WeatherService.shared
         
         DispatchQueue.main.async {
@@ -157,7 +158,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
             }
         }
     }
-    
     
     override func viewWillAppear(_ animated: Bool) {
         // data fetch(데이터 요청)
